@@ -9,4 +9,5 @@
     <string name="con_password">Confirm Password</string>
     <string name="symptoms_checker">Symptoms Checker</string>
     <string name="START">START</string>
+    <string name="article_name">article name</string>
 </resources>
