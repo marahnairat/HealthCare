@@ -75,11 +75,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/continu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="50dp"
+        android:onClick="continuCkeck"
         android:text="Continue" />
 
 </LinearLayout>
