@@ -14,12 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".section7"></activity>
-        <activity android:name=".section6" />
-        <activity android:name=".section5" />
-        <activity android:name=".section4" />
-        <activity android:name=".section3" />
-        <activity android:name=".section2" />
+        <activity android:name=".section7"
+            android:parentActivityName=".choose_symptom"></activity>
+        <activity android:name=".section6"
+            android:parentActivityName=".choose_symptom"/>
+        <activity android:name=".section5"
+            android:parentActivityName=".choose_symptom"/>
+        <activity android:name=".section4"
+            android:parentActivityName=".choose_symptom"/>
+        <activity android:name=".section3"
+            android:parentActivityName=".choose_symptom"/>
+        <activity android:name=".section2"
+            android:parentActivityName=".choose_symptom"/>
         <activity android:name=".StratActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +33,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".section1"
+            android:parentActivityName=".choose_symptom"
+            ></activity>
         <activity android:name=".CheckActivity" />
         <activity android:name=".ListViews" />
         <activity android:name=".Dr_profile" />
