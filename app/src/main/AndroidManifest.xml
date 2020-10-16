@@ -26,7 +26,7 @@
             android:parentActivityName=".choose_symptom"/>
         <activity android:name=".section2"
             android:parentActivityName=".choose_symptom"/>
-        <activity android:name=".StratActivity">
+        <activity android:name=".TwoFragmentsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

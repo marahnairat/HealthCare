@@ -37,7 +37,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="100dp"
         android:background="@color/blue"
-        android:onClick="startApp"
 
         android:text="@string/START"
         android:textColor="@color/white"
