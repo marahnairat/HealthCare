@@ -10,4 +10,6 @@
     <string name="symptoms_checker">Symptoms Checker</string>
     <string name="START">START</string>
     <string name="article_name">article name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

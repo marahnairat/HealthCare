@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDF9C0">
+    android:background="@color/white">
 
     <DatePicker
         android:id="@+id/datePicker1"
@@ -36,11 +36,12 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="206dp"
         android:layout_marginLeft="206dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="47dp"
         android:layout_marginEnd="18dp"
         android:layout_marginRight="18dp"
-        android:layout_marginBottom="677dp"
-        android:text="Patient's Calender..." />
+        android:layout_marginBottom="660dp"
+        android:text="Patient's Calender..."
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView2"
