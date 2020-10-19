@@ -20,7 +20,7 @@ public class CheckActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //hendl action here eg
 
-                Intent i = new Intent(getBaseContext(),ListViews.class);
+                Intent i = new Intent(getBaseContext(),TwoFragmentsActivity.class);
                 startActivity(i);
 
             }
