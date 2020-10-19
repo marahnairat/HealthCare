@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C6E1EB">
+    android:background="#B9F1E4">
 
     <DatePicker
         android:id="@+id/datePicker1"
@@ -38,7 +38,9 @@
         android:layout_marginEnd="129dp"
         android:layout_marginRight="129dp"
         android:layout_marginBottom="687dp"
-        android:text="Doctor's Calender..." />
+        android:text="Doctor's Calender..."
+        android:textAlignment="viewStart"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button"
@@ -113,11 +115,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/circle"
+        android:scaleType="centerInside"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="27dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="262dp"
         android:layout_marginRight="262dp"
         android:layout_marginBottom="555dp"
-        app:srcCompat="@drawable/doctor" />
+        app:srcCompat="@drawable/male" />
 </RelativeLayout>
