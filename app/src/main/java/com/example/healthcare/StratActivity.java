@@ -1,27 +1,36 @@
 package com.example.healthcare;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import butterknife.BindView;
 
 public class StratActivity extends AppCompatActivity {
     @BindView(R.id.startcheck) Button start;
+
+    private static final int REQUEST_CALL = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Button button= (Button) findViewById(R.id.startcheck);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button start= (Button) findViewById(R.id.startcheck);
+        start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //hendl action here eg
@@ -31,8 +40,49 @@ public class StratActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+        ImageView ambalanceBT= (ImageView) findViewById(R.id.ambalance);
+        ambalanceBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //hendl action here eg
+
+                callAmbalance();
+
+            }
+        });
+
+
+
     }
 
+    private void callAmbalance() {
+        String number = "101";
+        if (number.trim().length() > 0) {
+            if (ContextCompat.checkSelfPermission(StratActivity.this,
+                    Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(StratActivity.this,
+                        new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+            } else {
+                String dial = "tel:" + number;
+                startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+            }
+        } else {
+            Toast.makeText(StratActivity.this, "Enter Phone Number", Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CALL) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                callAmbalance();
+            } else {
+                Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
 
 
