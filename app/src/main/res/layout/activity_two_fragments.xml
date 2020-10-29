@@ -55,11 +55,19 @@
         android:id="@+id/two_fragment"
         android:name="com.example.healthcare.TwoFragment"
         android:layout_width="wrap_content"
-        android:layout_height="158dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="100dp"
-        tools:layout="@layout/two_fragment" />
 
+        tools:layout="@layout/two_fragment" />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="continue"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="150dp"
+    android:layout_marginBottom="10dp"
+    android:onClick="continueCheck"
+    />
 </LinearLayout>

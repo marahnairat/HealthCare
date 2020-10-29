@@ -1,6 +1,7 @@
 package com.example.healthcare;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -131,5 +132,9 @@ public class TwoFragmentsActivity extends FragmentActivity implements
     }
 
 
+    public void continueCheck(View view) {
+                Intent i = new Intent(getBaseContext(),ListViews.class);
+                startActivity(i);
 
+    }
 }
