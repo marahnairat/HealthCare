@@ -9,17 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.view.View;
-
 import androidx.annotation.NonNull;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-//import com.google.firebase.firestore.DocumentReference;
-//import com.google.firebase.firestore.DocumentSnapshot;
-//import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+
 
 public class ThreeFragment extends Fragment {
 
@@ -49,13 +46,13 @@ public class ThreeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.three_fragment, container, false);
-//
-//        final Button button = (Button) view.findViewById(R.id.buttonchange);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                buttonClicked(v);
-//            }
-//        });
+
+        final Button button = (Button) view.findViewById(R.id.chestandback);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                clickedButton(v);
+            }
+        });
 
         return view;
     }
@@ -67,46 +64,36 @@ public class ThreeFragment extends Fragment {
 //    }
 
 
-//
-//    public void clickedButton(View view)
-//    {
+
+    public void clickedButton(View view)
+    {
 //        Button chestButton=view.findViewById(R.id.chestandback);
 //        chestButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//              String [] chestArray;
-//                DocumentReference chestData=FirebaseFirestore.getInstance().collection("areas").document("chestandback");
-//                chestData.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                        if(task.isSuccessful())
-//                        {
-//                            DocumentSnapshot chestdoc=task.getResult();
-//                            if (chestdoc.exists())
-//                            {
-//                                Log.d("Document",chestdoc.getData().toString());
-//                            }
-//                            else
-//                            {
-//                                Log.d("Document","noooooooooo data");
-//                            }
-//                        }
-//                    }
-//                });
+              String [] chestArray;
+                DocumentReference chestData= FirebaseFirestore.getInstance().collection("areas").document("chestandback");
+                chestData.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful())
+                        {
+                            DocumentSnapshot chestdoc=task.getResult();
+                            if (chestdoc.exists())
+                            {
+                                Log.d("Document",chestdoc.getData().toString());
+                            }
+                            else
+                            {
+                                Log.d("Document","noooooooooo data");
+                            }
+                        }
+                    }
+                });
 //            }
 //        });
-//    }
+    }
 
-
-//        ambalanceBT.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            //hendl action here eg
-//
-//            callAmbalance();
-//
-//        }
-//    });
 
 
 }
