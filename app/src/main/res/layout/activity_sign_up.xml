@@ -80,7 +80,7 @@
                 android:singleLine="true" />
 
             <Button
-                android:id="@+id/signIN"
+                android:id="@+id/signUP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
