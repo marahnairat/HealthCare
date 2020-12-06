@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/ic_login2"
     android:focusable="true"
-    android:background="@color/back1"
+    android:orientation="vertical"
     tools:context=".SignupActivity">
 
     <TextView
@@ -16,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="cursive"
+        android:fontFamily="serif"
         android:gravity="center_horizontal"
         android:text="@string/app_name"
         android:textColor="#3F51B5"
@@ -25,25 +24,25 @@
 
     <RelativeLayout
         android:id="@+id/layout_motion"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="349dp"
+        android:layout_height="342dp"
         android:layout_below="@+id/title"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="196dp"
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="20dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="311dp"
+            android:layout_height="291dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="4dp"
             android:orientation="vertical"
-            android:paddingTop="30dp">
+            android:paddingTop="0dp">
 
 
             <EditText
@@ -96,7 +95,6 @@
 
         </LinearLayout>
     </RelativeLayout>
-
 
 
 </RelativeLayout>
