@@ -3,20 +3,26 @@ package com.example.healthcare;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 
 public class TwoFragmentsActivity extends FragmentActivity implements
         OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
     String result=" ";
+    String symp=" ";
    CheckBox cb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,7 @@ public class TwoFragmentsActivity extends FragmentActivity implements
 
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.two_fragments, menu);
+//        getMenuInflater().inflate(R.menu.one_fragment, menu);
         return true;
     }
 
@@ -124,7 +131,6 @@ public class TwoFragmentsActivity extends FragmentActivity implements
     @Override
     public void onButtonClick() {
         TwoFragment textFragment;
-
         textFragment = (TwoFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.two_fragment);
         textFragment.changeTextProperties(" "+result);
@@ -137,4 +143,50 @@ public class TwoFragmentsActivity extends FragmentActivity implements
                 startActivity(i);
 
     }
+
+
+
+//    public void specializationButton(View view)
+//    {
+//
+//
+//    }
+//
+
+
+
+
+    @Override
+    public void onSpecializationButtonClick() {
+
+        String [] chestArray;
+        DocumentReference chestData= FirebaseFirestore.getInstance().collection("areas").document("chestandback");
+        chestData.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    DocumentSnapshot chestdoc=task.getResult();
+                    if (chestdoc.exists())
+                    {
+                        OneFragment checkboxFragment;
+                        checkboxFragment= (OneFragment) getSupportFragmentManager()
+                                .findFragmentById(R.id.one_fragment);
+                        checkboxFragment.changeTextCheckbox(chestdoc.getData().get("s1").toString());
+
+                        Log.d("Document",chestdoc.getData().get("s1").toString());
+                    }
+                    else
+                    {
+                        Log.d("Document","noooooooooo data");
+                    }
+
+                }
+            }
+        });
+
+
+
+    }
+
 }

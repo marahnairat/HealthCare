@@ -4,19 +4,28 @@ package com.example.healthcare;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.CheckBox;
+
+import androidx.annotation.NonNull;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+
 
 public class ThreeFragment extends Fragment {
 
     ThreeFragmentListener activityCallback;
-
     //Listener for onButtonClick UI
     public interface ThreeFragmentListener {
-      //  public void onSpecialButtonClick();
+        public void onSpecializationButtonClick();
 
     }
 
@@ -38,13 +47,14 @@ public class ThreeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.three_fragment, container, false);
-//
-//        final Button button = (Button) view.findViewById(R.id.buttonchange);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                buttonClicked(v);
-//            }
-//        });
+
+        final Button button = (Button) view.findViewById(R.id.chestandback);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                clickedButton(v);
+            }
+        });
 
         return view;
     }
@@ -54,6 +64,17 @@ public class ThreeFragment extends Fragment {
 //      //  activityCallback.onSpecialButtonClick();
 //
 //    }
+
+
+
+    public void clickedButton(View view)
+    {
+
+        activityCallback.onSpecializationButtonClick();
+
+
+    }
+
 
 
 }
