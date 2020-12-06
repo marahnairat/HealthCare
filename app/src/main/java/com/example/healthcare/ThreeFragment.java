@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+
 import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,10 +23,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ThreeFragment extends Fragment {
 
     ThreeFragmentListener activityCallback;
-
     //Listener for onButtonClick UI
     public interface ThreeFragmentListener {
-      //  public void onSpecialButtonClick();
+        public void onSpecializationButtonClick();
 
     }
 
@@ -50,6 +51,7 @@ public class ThreeFragment extends Fragment {
         final Button button = (Button) view.findViewById(R.id.chestandback);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 clickedButton(v);
             }
         });
@@ -67,31 +69,10 @@ public class ThreeFragment extends Fragment {
 
     public void clickedButton(View view)
     {
-//        Button chestButton=view.findViewById(R.id.chestandback);
-//        chestButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-              String [] chestArray;
-                DocumentReference chestData= FirebaseFirestore.getInstance().collection("areas").document("chestandback");
-                chestData.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if(task.isSuccessful())
-                        {
-                            DocumentSnapshot chestdoc=task.getResult();
-                            if (chestdoc.exists())
-                            {
-                                Log.d("Document",chestdoc.getData().toString());
-                            }
-                            else
-                            {
-                                Log.d("Document","noooooooooo data");
-                            }
-                        }
-                    }
-                });
-//            }
-//        });
+
+        activityCallback.onSpecializationButtonClick();
+
+
     }
 
 

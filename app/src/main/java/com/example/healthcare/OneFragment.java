@@ -2,17 +2,19 @@ package com.example.healthcare;
 
 
 import android.app.Activity;
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class OneFragment extends Fragment {
 
     OneFragmentListener activityCallback;
+    CheckBox checkBox;
 
     //Listener for onButtonClick UI
     public interface OneFragmentListener {
@@ -38,10 +40,7 @@ public class OneFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.one_fragment, container, false);
-
-//        mEditText = (EditText) view.findViewById(R.id.radioButton1).getTea;
-
-
+        checkBox=(CheckBox) view.findViewById(R.id.checkbox1);
 
         final Button button = (Button) view.findViewById(R.id.buttonchange);
         button.setOnClickListener(new View.OnClickListener() {
@@ -59,5 +58,8 @@ public class OneFragment extends Fragment {
 
     }
 
+    public void changeTextCheckbox(String s) {
+        checkBox.setText(s);
+    }
 
 }
