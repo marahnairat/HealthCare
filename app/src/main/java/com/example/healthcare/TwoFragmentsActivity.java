@@ -18,6 +18,10 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class TwoFragmentsActivity extends FragmentActivity implements
         OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
@@ -172,9 +176,22 @@ public class TwoFragmentsActivity extends FragmentActivity implements
                         OneFragment checkboxFragment;
                         checkboxFragment= (OneFragment) getSupportFragmentManager()
                                 .findFragmentById(R.id.one_fragment);
-                        checkboxFragment.changeTextCheckbox(chestdoc.getData().get("s1").toString());
 
-                        Log.d("Document",chestdoc.getData().get("s1").toString());
+
+                        checkboxFragment.changeTextCheckbox(chestdoc.getData().values().toString());
+
+                        String[] m= chestdoc.getData().values().toString().split(",");
+
+
+                        for (int i=0;i<m.length;i++)
+                        {
+
+                            Toast.makeText(getApplicationContext(), m[i], Toast.LENGTH_LONG).show();
+
+
+                        }
+                      Log.d("Document", chestdoc.getData().values().toString());
+
                     }
                     else
                     {
