@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.healthcare.TwoFragmentsActivity"
     android:orientation="vertical"
+android:id="@+id/layout_two"
     >
 
     <TextView
@@ -39,17 +40,44 @@
             tools:layout="@layout/three_fragment"
 
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="426dp"
+            android:layout_marginTop="13dp"
+            android:orientation="vertical"
+            android:minHeight="@android:dimen/app_icon_size"
 
-        <fragment
-            android:id="@+id/one_fragment"
-            android:name="com.example.healthcare.OneFragment"
-            android:layout_width="155dp"
-            android:layout_height="427dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            tools:layout="@layout/one_fragment" />
+            >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="350dp">
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical"
+            android:id="@+id/one_layout"
+            android:minHeight="@android:dimen/app_icon_size"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+            >
+            </LinearLayout>
+            </ScrollView>
+            <Button
+                android:id="@+id/buttonchange"
+                android:layout_width="98dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:background="@color/gradEnd"
+                android:text="ok"
+
+                />
+
     </LinearLayout>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="80dp">
 
     <fragment
         android:id="@+id/two_fragment"
@@ -61,6 +89,8 @@
         android:layout_marginRight="10dp"
 
         tools:layout="@layout/two_fragment" />
+
+    </ScrollView>
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

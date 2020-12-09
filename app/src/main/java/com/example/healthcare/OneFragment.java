@@ -10,11 +10,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 public class OneFragment extends Fragment {
 
     OneFragmentListener activityCallback;
     CheckBox checkBox;
+    CheckBox ch1;
+    CheckBox ch2;
+    CheckBox ch3;
+    CheckBox ch4;
 
     //Listener for onButtonClick UI
     public interface OneFragmentListener {
@@ -40,11 +45,15 @@ public class OneFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.one_fragment, container, false);
-        checkBox=(CheckBox) view.findViewById(R.id.checkbox1);
+//        ch1=(CheckBox) view.findViewById(R.id.checkbox1);
+//        ch2=(CheckBox) view.findViewById(R.id.checkbox2);
+//        ch3=(CheckBox) view.findViewById(R.id.checkbox3);
+//        ch4=(CheckBox) view.findViewById(R.id.checkbox4);
 
         final Button button = (Button) view.findViewById(R.id.buttonchange);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 buttonClicked(v);
             }
         });
@@ -58,8 +67,19 @@ public class OneFragment extends Fragment {
 
     }
 
-    public void changeTextCheckbox(String s) {
-        checkBox.setText(s);
-    }
+//    public void changeTextCheckbox(View view,String[] s) {
+//        for (int i=0;i<s.length;i++) {
+//
+//            ch1=(CheckBox) view.findViewById(R.id.checkbox1);
+//            checkBox.setText(s[i]);
+//        }
+////        ch1.setText(s[0]);
+////        ch2.setText(s[1]);
+////        ch3.setText(s[2]);
+////        ch4.setText(s[3]);
+//
+//
+//    }
+
 
 }

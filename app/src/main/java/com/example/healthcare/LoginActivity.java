@@ -57,7 +57,25 @@ public class LoginActivity extends Activity {
                 LogIn();
             }
         });
+
+
+        Button signup = (Button) findViewById(R.id.signup);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getBaseContext(), SignupActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+
     }
+
+
+
+
     private void LogIn(){
         String Name=email.getText().toString().trim();
         String Pass=password.getText().toString().trim();
