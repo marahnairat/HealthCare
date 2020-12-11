@@ -59,11 +59,12 @@
             android:adjustViewBounds="true"
             android:background="@drawable/circle"
             android:padding="3dp"
-            android:onClick="call_amb"
             android:scaleType="centerInside"
+            android:src="@drawable/amb"
             />
 
         <ImageView
+            android:id="@+id/remind"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_margin="9dp"
@@ -110,7 +111,7 @@
                 android:background="@drawable/circle"
                 android:padding="3dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_user" />
+                android:src="@drawable/corona" />
 
 
             <LinearLayout
@@ -130,7 +131,7 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:text="mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmaaaaaaaaaaaaaaaaal"
+                    android:text="https://coronavirus.medium.com/"
 
                     />
 
@@ -146,7 +147,7 @@
                 android:background="@drawable/circle"
                 android:padding="3dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/male" />
+                android:src="@drawable/corona2" />
 
 
             <LinearLayout
@@ -166,7 +167,7 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:text="mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmaaaaaaaaaaaaaaaaal"
+                    android:text="https://coronavirus.medium.com/"
 
                     />
 
@@ -202,7 +203,7 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:text="mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmaaaaaaaaaaaaaaaaal"
+                    android:text="https://coronavirus.medium.com/"
 
                     />
 

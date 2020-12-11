@@ -1,12 +1,16 @@
 package com.example.healthcare;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,10 +32,22 @@ public class TwoFragmentsActivity extends FragmentActivity implements
     String result=" ";
     String symp=" ";
    CheckBox cb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two_fragments);
+
+
+        final Button button = (Button) findViewById(R.id.buttonchange);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                onButtonClick();
+            }
+        });
+
+
     }
 
     @Override
@@ -44,92 +60,6 @@ public class TwoFragmentsActivity extends FragmentActivity implements
     }
 
 
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.checkbox1:
-                if (checked) {
-                    cb=(CheckBox)findViewById(R.id.checkbox1);
-                    Toast.makeText(TwoFragmentsActivity.this,cb.getText(), Toast.LENGTH_SHORT).show();
-                    result=result+"   "+ cb.getText();
-
-                }
-                else
-                    Toast.makeText(TwoFragmentsActivity.this,"delete",Toast.LENGTH_SHORT).show();
-                    break;
-            case R.id.checkbox2:
-                if (checked) {
-                    cb=(CheckBox)findViewById(R.id.checkbox2);
-                    Toast.makeText(TwoFragmentsActivity.this, cb.getText(), Toast.LENGTH_SHORT).show();
-                    result=result+"   "+ cb.getText();
-
-                }
-                else
-                    Toast.makeText(TwoFragmentsActivity.this,"delete",Toast.LENGTH_SHORT).show();
-                    break;
-            case R.id.checkbox3:
-                if (checked) {
-                    cb = (CheckBox) findViewById(R.id.checkbox3);
-                    Toast.makeText(TwoFragmentsActivity.this, cb.getText(), Toast.LENGTH_SHORT).show();
-                    result=result+"   "+ cb.getText();
-
-                }
-                else
-                    Toast.makeText(TwoFragmentsActivity.this,"delete",Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.checkbox4:
-                if (checked) {
-                    cb = (CheckBox) findViewById(R.id.checkbox4);
-                    Toast.makeText(TwoFragmentsActivity.this, cb.getText(), Toast.LENGTH_SHORT).show();
-                    result=result+"   "+ cb.getText();
-
-                }
-                else
-                    Toast.makeText(TwoFragmentsActivity.this,"delete",Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.checkbox5:
-                if (checked) {
-                    cb = (CheckBox) findViewById(R.id.checkbox5);
-
-                    Toast.makeText(TwoFragmentsActivity.this, cb.getText(), Toast.LENGTH_SHORT).show();
-                    result=result+"   "+ cb.getText();
-                }
-                else
-                    Toast.makeText(TwoFragmentsActivity.this,"delete",Toast.LENGTH_SHORT).show();
-                break;
-            // TODO: Veggie sandwich
-
-            case R.id.checkbox6:
-                if (checked) {
-                    cb = (CheckBox) findViewById(R.id.checkbox6);
-
-                    Toast.makeText(TwoFragmentsActivity.this, cb.getText(), Toast.LENGTH_SHORT).show();
-                    result=result+"   "+ cb.getText();
-                }
-                else
-                    Toast.makeText(TwoFragmentsActivity.this,"delete",Toast.LENGTH_SHORT).show();
-                break;
-            // TODO: Veggie sandwich
-            case R.id.checkbox7:
-                if (checked) {
-                    cb = (CheckBox) findViewById(R.id.checkbox7);
-
-                    Toast.makeText(TwoFragmentsActivity.this, cb.getText(), Toast.LENGTH_SHORT).show();
-                    result=result+"   "+ cb.getText();
-                }
-                else
-                    Toast.makeText(TwoFragmentsActivity.this,"delete",Toast.LENGTH_SHORT).show();
-                break;
-            // TODO: Veggie sandwich
-
-        }
-
-    }
 
 
     @Override
@@ -150,21 +80,12 @@ public class TwoFragmentsActivity extends FragmentActivity implements
 
 
 
-//    public void specializationButton(View view)
-//    {
-//
-//
-//    }
-//
-
-
 
 
     @Override
-    public void onSpecializationButtonClick() {
-
+    public void onSpecializationButtonClick(String area) {
         String [] chestArray;
-        DocumentReference chestData= FirebaseFirestore.getInstance().collection("areas").document("chestandback");
+        DocumentReference chestData= FirebaseFirestore.getInstance().collection("areas").document( area );
         chestData.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -173,23 +94,10 @@ public class TwoFragmentsActivity extends FragmentActivity implements
                     DocumentSnapshot chestdoc=task.getResult();
                     if (chestdoc.exists())
                     {
-                        OneFragment checkboxFragment;
-                        checkboxFragment= (OneFragment) getSupportFragmentManager()
-                                .findFragmentById(R.id.one_fragment);
-
-
-                        checkboxFragment.changeTextCheckbox(chestdoc.getData().values().toString());
 
                         String[] m= chestdoc.getData().values().toString().split(",");
+                        changeTextCheckbox(m);
 
-
-                        for (int i=0;i<m.length;i++)
-                        {
-
-                            Toast.makeText(getApplicationContext(), m[i], Toast.LENGTH_LONG).show();
-
-
-                        }
                       Log.d("Document", chestdoc.getData().values().toString());
 
                     }
@@ -205,5 +113,37 @@ public class TwoFragmentsActivity extends FragmentActivity implements
 
 
     }
+    public void changeTextCheckbox(String[] s) {
+        for (int i=0;i<s.length;i++) {
+
+            createChekbox(s[i],i);
+        }
+
+
+    }
+    @SuppressLint("ResourceType")
+    private void createChekbox(String s, int i) {
+
+        final LinearLayout ll = (LinearLayout) findViewById(R.id.one_layout);
+
+        CheckBox cb = new CheckBox(this);
+        cb.setText(s);
+        cb.setId(i);
+        ll.addView(cb);
+cb.setOnClickListener(new View.OnClickListener() {
+                          @Override
+                          public void onClick(View v) {
+                              if (((CheckBox) v).isChecked()) {
+                                  result+=cb.getText()+" , ";
+                                  Toast.makeText(TwoFragmentsActivity.this, cb.getText()+"SELECTED" , Toast.LENGTH_SHORT).show();
+                              } else {
+                                  Toast.makeText(TwoFragmentsActivity.this, cb.getText()+"Not selected", Toast.LENGTH_SHORT).show();
+                              }
+                          }
+                      }
+);
+
+    }
+
 
 }

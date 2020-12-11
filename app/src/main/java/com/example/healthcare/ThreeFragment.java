@@ -25,7 +25,7 @@ public class ThreeFragment extends Fragment {
     ThreeFragmentListener activityCallback;
     //Listener for onButtonClick UI
     public interface ThreeFragmentListener {
-        public void onSpecializationButtonClick();
+        public void onSpecializationButtonClick(String area);
 
     }
 
@@ -48,29 +48,84 @@ public class ThreeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.three_fragment, container, false);
 
-        final Button button = (Button) view.findViewById(R.id.chestandback);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button button1 = (Button) view.findViewById(R.id.chestandback);
+        button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                clickedButton(v);
+                clickedButton(v,"Chest and back");
             }
         });
+
+
+        final Button button2 = (Button) view.findViewById(R.id.headandneck);
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                clickedButton(v,"Head and neck");
+            }
+        });
+
+
+        final Button button3 = (Button) view.findViewById(R.id.abdomenandpelvis);
+        button3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                clickedButton(v,"Abdomen and pelvis");
+            }
+        });
+
+
+        final Button button4 = (Button) view.findViewById(R.id.noseearthroat);
+        button4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                clickedButton(v,"nose ear throat ");
+            }
+        });
+
+
+        final Button button5 = (Button) view.findViewById(R.id.skin);
+        button5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                clickedButton(v,"skin");
+            }
+        });
+
+
+
+        final Button button6 = (Button) view.findViewById(R.id.bonesandjoints);
+        button6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                clickedButton(v,"Bones and joints");
+            }
+        });
+
+
+
+        final Button button7 = (Button) view.findViewById(R.id.elsee);
+        button7.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                clickedButton(v,"Else ");
+            }
+        });
+
+
+
+
 
         return view;
     }
 
-//    //Set the activityCallback to onButtonClick passing the text in the mEditText
-//    public void buttonClicked(View view) {
-//      //  activityCallback.onSpecialButtonClick();
-//
-//    }
 
 
 
-    public void clickedButton(View view)
+    public void clickedButton(View view,String area)
     {
 
-        activityCallback.onSpecializationButtonClick();
+        activityCallback.onSpecializationButtonClick(area);
 
 
     }

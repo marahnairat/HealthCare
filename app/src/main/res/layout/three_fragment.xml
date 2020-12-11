@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="400dp"
     android:layout_marginTop="100dp"
     android:textAlignment="center"
     android:background="@color/colorWhite"
@@ -26,7 +26,7 @@
 
 <Button
             android:id="@+id/chestandback"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="Chest and Back"
             android:layout_marginLeft="30dp"
@@ -34,56 +34,50 @@
     />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
+            android:id="@+id/headandneck"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:onClick="opensection3"
-            android:text="Button"
+            android:text="Head and Neck"
             android:layout_marginLeft="30dp"/>
 
         <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
+            android:id="@+id/abdomenandpelvis"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:onClick="opensection4"
-            android:text="Button"
+            android:text="Abdomen and Pelvis"
             android:layout_marginLeft="30dp"
             />
 
         <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
+            android:id="@+id/noseearthroat"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:onClick="opensection5"
-            android:text="Button"
+            android:text="Nose ear throat"
             android:layout_marginLeft="30dp"
             />
 
         <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
+            android:id="@+id/skin"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:onClick="opensection6"
-            android:text="Button"
+            android:text="Skin"
             android:layout_marginLeft="30dp"
             />
 
         <Button
-            android:id="@+id/button7"
-            android:layout_width="wrap_content"
+            android:id="@+id/bonesandjoints"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:onClick="opensection7"
-            android:text="Button"
+            android:text="Bones and joints"
             android:layout_marginLeft="30dp"
             />
 
         <Button
-            android:id="@+id/button8"
-            android:layout_width="wrap_content"
+            android:id="@+id/elsee"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:onClick="opensection1"
-            android:text="Button"
+            android:text="Else"
             android:layout_marginLeft="30dp"
             />
 

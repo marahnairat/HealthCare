@@ -54,9 +54,28 @@ public class StratActivity extends AppCompatActivity {
             }
         });
 
+        ImageView reminderBT= (ImageView) findViewById(R.id.remind);
+        reminderBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+               Intent i = new Intent(getBaseContext(),ReminderActivity.class);
+                startActivity(i);
+
+            }
+
+
+
+             });
+
 
 
     }
+
+
+
+
 
     private void callAmbalance() {
         String number = "101";
