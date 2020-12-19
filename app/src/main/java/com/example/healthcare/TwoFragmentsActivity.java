@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -22,16 +21,12 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class TwoFragmentsActivity extends FragmentActivity implements
         OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
     String result=" ";
-    String symp=" ";
-   CheckBox cb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,18 +79,20 @@ public class TwoFragmentsActivity extends FragmentActivity implements
 
     @Override
     public void onSpecializationButtonClick(String area) {
-        String [] chestArray;
         DocumentReference chestData= FirebaseFirestore.getInstance().collection("areas").document( area );
         chestData.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful())
                 {
-                    DocumentSnapshot chestdoc=task.getResult();
+                    DocumentSnapshot chestdoc =task.getResult();
                     if (chestdoc.exists())
                     {
 
-                        String[] m= chestdoc.getData().values().toString().split(",");
+                        String[] m= chestdoc.getData().keySet().toString().split(",");
+//                        ArrayList<String[]> n=new ArrayList<>();
+//                        for(int i=0;i<m.length;i++)
+//                           n.add(chestdoc.getData().get(m[i]).toString().split(","));
                         changeTextCheckbox(m);
 
                       Log.d("Document", chestdoc.getData().values().toString());
@@ -134,6 +131,7 @@ cb.setOnClickListener(new View.OnClickListener() {
                           @Override
                           public void onClick(View v) {
                               if (((CheckBox) v).isChecked()) {
+
                                   result+=cb.getText()+" , ";
                                   Toast.makeText(TwoFragmentsActivity.this, cb.getText()+"SELECTED" , Toast.LENGTH_SHORT).show();
                               } else {
