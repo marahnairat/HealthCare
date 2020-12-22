@@ -27,7 +27,6 @@ import java.util.ArrayList;
 public class TwoFragmentsActivity extends FragmentActivity implements
         OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
     String result=" ";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +78,7 @@ public class TwoFragmentsActivity extends FragmentActivity implements
 
     @Override
     public void onSpecializationButtonClick(String area) {
-        DocumentReference chestData= FirebaseFirestore.getInstance().collection("areas").document( area );
+      DocumentReference chestData= FirebaseFirestore.getInstance().collection("areas").document( area );
         chestData.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -122,11 +121,13 @@ public class TwoFragmentsActivity extends FragmentActivity implements
     private void createChekbox(String s, int i) {
 
         final LinearLayout ll = (LinearLayout) findViewById(R.id.one_layout);
-
         CheckBox cb = new CheckBox(this);
+
+
         cb.setText(s);
         cb.setId(i);
         ll.addView(cb);
+
 cb.setOnClickListener(new View.OnClickListener() {
                           @Override
                           public void onClick(View v) {
