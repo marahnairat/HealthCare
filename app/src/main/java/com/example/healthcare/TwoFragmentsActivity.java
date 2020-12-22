@@ -22,10 +22,17 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class TwoFragmentsActivity extends FragmentActivity implements
         OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
+   // List<String> valuesselected = Arrays.asList();
+    ArrayList<String>  valuesselected=new ArrayList<String>();
+   // tring [] valuesselected ;S
+    HashMap<String, String> map = new HashMap<String, String>();
     String result=" ";
 
     @Override
@@ -90,6 +97,14 @@ public class TwoFragmentsActivity extends FragmentActivity implements
                     {
 
                         String[] m= chestdoc.getData().keySet().toString().split(",");
+                        System.out.println(chestdoc.getData());
+                        System.out.println(chestdoc.getData().getClass().getName());
+                        String[] m_value= chestdoc.getData().values().toString().split(",");
+
+                        for (int i=0;i<m.length;i++){
+                            map.put(m[i],m_value[i]);
+                        }
+                        System.out.println(map);
 //                        ArrayList<String[]> n=new ArrayList<>();
 //                        for(int i=0;i<m.length;i++)
 //                           n.add(chestdoc.getData().get(m[i]).toString().split(","));
@@ -106,8 +121,6 @@ public class TwoFragmentsActivity extends FragmentActivity implements
                 }
             }
         });
-
-
 
     }
     public void changeTextCheckbox(String[] s) {
@@ -134,6 +147,11 @@ cb.setOnClickListener(new View.OnClickListener() {
 
                                   result+=cb.getText()+" , ";
                                   Toast.makeText(TwoFragmentsActivity.this, cb.getText()+"SELECTED" , Toast.LENGTH_SHORT).show();
+                                    valuesselected.add(map.get(cb.getText()));
+
+                                         Log.i("Test", valuesselected.get(0));
+
+                                 // Log.i("Test", "log infos");
                               } else {
                                   Toast.makeText(TwoFragmentsActivity.this, cb.getText()+"Not selected", Toast.LENGTH_SHORT).show();
                               }
