@@ -49,6 +49,13 @@ public class TwoFragmentsActivity extends FragmentActivity implements
             }
         });
 
+        final Button but1 = (Button) findViewById(R.id.continueButton);
+        but1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                continueCheck(v);
+            }
+        });
+
 
     }
 
@@ -71,12 +78,46 @@ public class TwoFragmentsActivity extends FragmentActivity implements
                 .findFragmentById(R.id.two_fragment);
         textFragment.changeTextProperties(" "+result);
         result=" ";
+for(int i=0;i<valuesselected.size();i++)
+        Log.i("Test", valuesselected.get(i));
+
     }
 
 
     public void continueCheck(View view) {
-                Intent i = new Intent(getBaseContext(),ListViews.class);
-                startActivity(i);
+//        double data[] = new double[valuesselected.size()];
+//        for (int m=0;m<valuesselected.size();m++) {
+//            data[m]= Double.parseDouble(valuesselected.get(m))*10.0;
+//        }
+ double data[]={13,15,33,41,14,19,75,16};
+        double noofclusters=3;
+        double centroid[][]=new double[][]{
+                {0,0,0},
+                {2,4,30}
+        };
+        Pair c=getCentroid(data,noofclusters,centroid);
+
+        for (int i=0;i<=c.getArray1().length;i++) {
+            Log.d("Document", "marrrrrrrrrrrrrah " + (int) c.getArray1()[1][i]);
+//            if ((int)c[1].length)
+        }
+        int max=(int)c.getArray2()[0];
+        int k = 0;
+        for (int j=0;j<c.getArray2().length;j++)
+        {
+            if (c.getArray2()[j]>=max)
+            {
+                max=(int) c.getArray2()[j];
+                k=j;
+                Log.d("Document", "max length print k   " +(int)c.getArray1()[1][k]/10 );
+
+            }
+        }
+        Log.d("Document", "RESUIUUUUUUUUUUUULLLT " +(int)c.getArray1()[1][k]/10 );
+
+
+//        Intent i = new Intent(getBaseContext(),ListViews.class);
+//                startActivity(i);
 
     }
 
@@ -149,8 +190,6 @@ cb.setOnClickListener(new View.OnClickListener() {
                                   Toast.makeText(TwoFragmentsActivity.this, cb.getText()+"SELECTED" , Toast.LENGTH_SHORT).show();
                                     valuesselected.add(map.get(cb.getText()));
 
-                                         Log.i("Test", valuesselected.get(0));
-
                                  // Log.i("Test", "log infos");
                               } else {
                                   Toast.makeText(TwoFragmentsActivity.this, cb.getText()+"Not selected", Toast.LENGTH_SHORT).show();
@@ -162,4 +201,86 @@ cb.setOnClickListener(new View.OnClickListener() {
     }
 
 
+
+    public Pair getCentroid(double data[],double noofclusters,double centroid[][]){
+
+        double distance[][]=new double[(int) noofclusters][data.length];
+        double cluster[]=new double[data.length];
+        double clusternodecount[]=new double[(int) noofclusters];
+
+        centroid[0]=centroid[1];
+        centroid[1]=new double[]{0,0,0};
+
+
+        //calculate distances
+        for(double i=0;i<noofclusters;i++){
+            for(double j=0;j<data.length;j++){
+
+                distance[(int) i][(int) j]=Math.abs(data[(int) j]-(int)centroid[0][(int) i]);
+
+            }
+
+        }
+
+
+        for(double j=0;j<data.length;j++){
+            double smallerDistance=0;
+            if(distance[0][(int) j]<distance[1][(int) j] && distance[0][(int) j]<distance[2][(int) j])
+                smallerDistance=0;
+            if(distance[1][(int) j]<distance[0][(int) j] && distance[1][(int) j]<distance[2][(int) j])
+                smallerDistance=1;
+            if(distance[2][(int) j]<distance[0][(int) j] && distance[2][(int) j]<distance[1][(int) j])
+                smallerDistance=2;//
+
+            centroid[1][(int) smallerDistance]=centroid[1][(int) smallerDistance]+data[(int) j];
+            clusternodecount[(int) smallerDistance]=clusternodecount[(int) smallerDistance]+1;
+            cluster[(int) j]=smallerDistance;
+
+        }
+
+        for(double i=0;i<noofclusters;i++){
+            for(double l=0;l<data.length;l++){
+                if(cluster[(int) l]==i){}
+
+            }
+        }
+
+        for(double j=0;j<noofclusters;j++){
+            centroid[1][(int) j]=centroid[1][(int) j]/clusternodecount[(int) j];
+        }
+
+        boolean isAchived=true;
+        for(double j=0;j<noofclusters;j++){
+            if(isAchived && centroid[0][(int) j] == centroid[1][(int) j]){
+                isAchived=true;
+                continue;
+            }
+            isAchived=false;
+        }
+
+        if(!isAchived){
+
+            getCentroid(data,noofclusters,centroid);
+        }
+
+        return new Pair(centroid,clusternodecount);
+
+
+    }
+
+
+
+}
+class Pair
+{
+    private double[][] array1;
+    private double[] array2;
+    public Pair(double[][] array1, double[] array2)
+    {
+        this.array1 = array1;
+        this.array2 = array2;
+
+    }
+    public double[][] getArray1() { return array1; }
+    public double[] getArray2() { return array2; }
 }
