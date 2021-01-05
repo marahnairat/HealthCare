@@ -178,6 +178,12 @@ for(int i=0;i<valuesselected.size();i++)
         final LinearLayout ll = (LinearLayout) findViewById(R.id.one_layout);
 
         CheckBox cb = new CheckBox(this);
+        /*
+            if(s.startsWith("[")||s.endsWith("]")) {
+
+                s.replace("", "[");
+                s.replace("]","");
+            }*/
         cb.setText(s);
         cb.setId(i);
         ll.addView(cb);
