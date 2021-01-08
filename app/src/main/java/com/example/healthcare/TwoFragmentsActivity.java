@@ -190,6 +190,7 @@ int clustersdata[]= {10,30,50,70,90,110,130};
         final LinearLayout ll = (LinearLayout) findViewById(R.id.one_layout);
 
         CheckBox cb = new CheckBox(this);
+
         cb.setText(s);
         cb.setId(i);
         ll.addView(cb);
