@@ -42,7 +42,6 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".StratActivity" />
         <activity android:name=".ReminderActivity" />
-        <activity android:name="com.example.kmeanexample.KmeansActivity" />
     </application>
 
 </manifest>
