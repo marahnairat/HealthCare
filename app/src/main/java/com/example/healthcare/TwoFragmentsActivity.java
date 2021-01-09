@@ -2,8 +2,6 @@ package com.example.healthcare;
 
 
 import android.annotation.SuppressLint;
-import android.content.ClipData;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -15,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -23,19 +20,19 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class TwoFragmentsActivity extends FragmentActivity implements
         OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
    // List<String> valuesselected = Arrays.asList();
     ArrayList<String>  valuesselected=new ArrayList<String>();
-   // tring [] valuesselected ;S
+    ArrayList<String>  list_of_doctors=new ArrayList<String>();
     HashMap<String, String> map = new HashMap<String, String>();
     String result=" ";
     public int res;
@@ -126,9 +123,9 @@ int clustersdata[]= {10,30,50,70,90,110,130};
         Log.d("Document", "RESUIUUUUUUUUUUUULLLT " +res);
         res=res/10;
         Log.d("Document", "RESUIUUUUUUUUUUUULLLT " +res );
-       geAllFromFireStore(res);
+        getAllSpecializationsFromFireStore(res);
 
-
+//
 
 
 
@@ -157,17 +154,14 @@ int clustersdata[]= {10,30,50,70,90,110,130};
                     DocumentSnapshot chestdoc =task.getResult();
                     if (chestdoc.exists())
                     {
-
-                        String[] m= chestdoc.getData().keySet().toString().split(",");
-                        System.out.println(chestdoc.getData());
-                        System.out.println(chestdoc.getData().getClass().getName());
-                        String[] m_value= chestdoc.getData().values().toString().split(",");
-
-                        for (int i=0;i<m.length;i++){
-                            map.put(m[i],m_value[i]);
+                        ArrayList<String> symps=new ArrayList<String>();
+                        Map<String, Object> mapsym = chestdoc.getData();
+                        for (Map.Entry<String, Object> entry : mapsym.entrySet()) {
+                            Log.d("TAG", entry.getKey().toString()+""+ entry.getValue().toString());
+                            map.put(entry.getKey().toString(),entry.getValue().toString());
+                            symps.add(entry.getKey().toString());
                         }
-                        System.out.println(map);
-                        changeTextCheckbox(m);
+                        changeTextCheckbox(symps);
 
                       Log.d("Document", chestdoc.getData().values().toString());
 
@@ -182,10 +176,10 @@ int clustersdata[]= {10,30,50,70,90,110,130};
         });
 
     }
-    public void changeTextCheckbox(String[] s) {
-        for (int i=0;i<s.length;i++) {
+    public void changeTextCheckbox(ArrayList<String> s) {
+        for (int i=0;i<s.size();i++) {
 
-            createChekbox(s[i],i);
+            createChekbox(s.get(i),i);
         }
 
 
@@ -325,12 +319,44 @@ cb.setOnClickListener(new View.OnClickListener() {
 
 
 
-    public  void geAllFromFireStore(int res) {
+    public void getAllSpecializationsFromFireStore(int res) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        ArrayList<ClipData.Item> allItems = new ArrayList<>();
-
         db.collection("specialisations")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                        if (task.isSuccessful()) {
+
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String spec="";
+//                                    Log.d("all documents", document.getId() + " => " + document.getData());
+                                    String alldoc=document.getData().values().toString();
+                                    if (res == Integer.parseInt(alldoc.substring(1,2))) {
+                                        Log.d(" specialisation is: ", document.getId() );
+                                        Log.d("specialisation weight ", document.getId() + " => " + res);
+                                        spec = document.getId();
+                                        getDoctors(spec);
+                                    }
+                                }
+
+
+                        } else {
+                            Log.w("all documents", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+
+
+    }
+
+    public void getDoctors(String specialize) {
+        ArrayList<DataObject> doctors = new ArrayList<DataObject>();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("specialisations").document(specialize).collection("Doctors")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -338,29 +364,54 @@ cb.setOnClickListener(new View.OnClickListener() {
                         if (task.isSuccessful()) {
 
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                {
-//                                    Log.d("all documents", document.getId() + " => " + document.getData());
-                                    String alldoc=document.getData().values().toString();
+                                        doctors.add(new DataObject((int) document.getGeoPoint("location").getLatitude(),
+                                                (int) document.getGeoPoint("location").getLongitude()
+                                                ,document.get("name").toString()));
 
-                                    if (res == Integer.parseInt(alldoc.substring(1,2))) {
-                                        Log.d(" specialisation is: ", document.getId() );
-                                        Log.d("specialisation weight ", document.getId() + " => " + res);
-                                    }
-                                }
+
 
                             }
                         } else {
                             Log.w("all documents", "Error getting documents.", task.getException());
                         }
+
+                        ArrayList<DataObject> resultKNN = new ArrayList<DataObject>();//doctors
+
+                        DataObject patient = new DataObject(2, 3);// patient
+                        resultKNN = kNN(patient, doctors);
+
+                        for(int i=0;i<5;i++)
+                        Log.d("result of knnnnnn", resultKNN.get(i) + "\n" );
+
+
+
                     }
                 });
 
+
+
+
+
     }
 
+    public static ArrayList<DataObject> kNN(DataObject o, ArrayList<DataObject> objs) {
+        ArrayList<DataObject> record = new ArrayList<DataObject>();//doctors
+        DataObject ref ;
+        for (int i = 0; i < objs.size(); i++) {
+            ref = objs.get(i);
+            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.name));
+        }
 
-
-
-
+//sorting distance.
+        Collections.sort(record, new Comparator<DataObject>(){
+            public int compare(DataObject o1, DataObject o2){
+                if(o1.getDistance() == o2.getDistance())
+                    return 0;
+                return o1.getDistance() < o2.getDistance() ? -1 : 1;
+            }
+        });
+        return  record;
+    }
 
 
 
@@ -378,4 +429,39 @@ class Pair
     }
     public double[][] getArray1() { return array1; }
     public int[] getArray2() { return array2; }
+}
+
+class DataObject  {
+    int x;
+    int y;
+    double distance;
+    String name;
+    public DataObject(int x, int y)
+    { this.x = x;
+        this.y = y; }
+
+    public DataObject(int x, int y, String  name)
+    {
+        this.x = x;
+        this.y = y;
+        this.name = name;
+    }
+    public DataObject(double distance, String name)
+    {
+        this.distance = distance;
+        this.name = name;
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public String toString(){
+        return "[" + getDistance() + "," + getName() + "]";
+    }
 }
