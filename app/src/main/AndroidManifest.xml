@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.healthcare">
-
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
     <dist:module dist:instant="true" />
 
     <application
@@ -14,38 +12,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".register" />
-
-
-        <!-- <activity android:name=".section7" -->
-        <!-- android:parentActivityName=".choose_symptom"></activity> -->
-        <!-- <activity android:name=".section6" -->
-        <!-- android:parentActivityName=".choose_symptom"/> -->
-        <!-- <activity android:name=".section5" -->
-        <!-- android:parentActivityName=".choose_symptom"/> -->
-        <!-- <activity android:name=".section4" -->
-        <!-- android:parentActivityName=".choose_symptom"/> -->
-        <!-- <activity android:name=".section3" -->
-        <!-- android:parentActivityName=".choose_symptom"/> -->
-        <!-- <activity android:name=".section2" -->
-        <!-- android:parentActivityName=".choose_symptom"/> -->
-        <activity android:name=".TwoFragmentsActivity"/>
-             <!-- <activity android:name=".section1" -->
-        <!-- android:parentActivityName=".choose_symptom" -->
-        <!-- ></activity> -->
-        <activity android:name=".CheckActivity" />
-        <activity android:name=".ListViews" />
-        <activity android:name=".Dr_profile" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".login2">
+<!--        <activity android:name=".section7"-->
+<!--            android:parentActivityName=".choose_symptom"></activity>-->
+<!--        <activity android:name=".section6"-->
+<!--            android:parentActivityName=".choose_symptom"/>-->
+<!--        <activity android:name=".section5"-->
+<!--            android:parentActivityName=".choose_symptom"/>-->
+<!--        <activity android:name=".section4"-->
+<!--            android:parentActivityName=".choose_symptom"/>-->
+<!--        <activity android:name=".section3"-->
+<!--            android:parentActivityName=".choose_symptom"/>-->
+<!--        <activity android:name=".section2"-->
+<!--            android:parentActivityName=".choose_symptom"/>-->
+        <activity android:name=".TwoFragmentsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
+<!--        <activity android:name=".section1"-->
+<!--            android:parentActivityName=".choose_symptom"-->
+<!--            ></activity>-->
+        <activity android:name=".CheckActivity" />
+        <activity android:name=".ListViews" />
+        <activity android:name=".Dr_profile" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".user_interface" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".StratActivity" />
