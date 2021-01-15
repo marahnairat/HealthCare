@@ -1,106 +1,95 @@
 package com.example.healthcare;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.transition.Slide;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import java.util.HashMap;
+import java.util.Map;
 
-public class SignupActivity extends Activity {
+public class SignupActivity extends AppCompatActivity {
 
-
-    @BindView(R.id.signUP)
-    Button signUP;
-    @BindView(R.id.email)
-    EditText email;
-    @BindView(R.id.password)EditText password;
-
-    private FirebaseAuth mAuth;
-    private SharedPreferences s;
-    private Bundle bundle;
-
+    EditText fullName,email,password,phone;
+    Button registerBtn,goToLogin;
+    boolean valid = true;
+    FirebaseAuth fauth;
+    FirebaseFirestore fstore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
-        ButterKnife.bind(this);
-        mAuth = FirebaseAuth.getInstance();
-        s= getSharedPreferences("userName", Context.MODE_PRIVATE);
-        getSavedUserName();
+        setContentView(R.layout.activity_register);
+        fauth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
-            Slide slide = new Slide(Gravity.BOTTOM);
-            slide.addTarget(R.id.layout_motion);
-            getWindow().setEnterTransition(slide);
-        }
+        fullName = findViewById(R.id.registerName);
+        email = findViewById(R.id.registerEmail);
+        password = findViewById(R.id.registerPassword);
+        phone = findViewById(R.id.registerPhone);
+        registerBtn = findViewById(R.id.registerBtn);
+        goToLogin = findViewById(R.id.gotoLogin);
 
-        signUP.setOnClickListener(new View.OnClickListener() {
+        registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sign_up();
+                checkField(fullName);
+                checkField(email);
+                checkField(password);
+                checkField(phone);
+                if (valid){
+                    fauth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            FirebaseUser user =fauth.getCurrentUser();
+                            Toast.makeText(SignupActivity.this,"Avvount created ",Toast.LENGTH_SHORT).show();
+                            DocumentReference df =fstore.collection("Users").document(user.getUid());
+                            Map<String,Object> userinfo =new HashMap<>();
+                            userinfo.put("FullName",fullName.getText().toString());
+                            userinfo.put("UserEmail",email.getText().toString());
+                            userinfo.put("PhoneNumber",phone.getText().toString());
+                            userinfo.put("isUser","1");
+                            df.set(userinfo);
+                            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(SignupActivity.this,"Failled to creat account ",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
+        goToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             }
         });
     }
 
-    private void sign_up(){
-        final String Name=email.getText().toString().trim();
-        String Pass=password.getText().toString().trim();
-        if(TextUtils.isEmpty(Name)||TextUtils.isEmpty(Pass)){
-            Snackbar.make(findViewById(R.id.layout),"please fill the required information",Snackbar.LENGTH_LONG).show();
+    public boolean checkField(EditText textField){
+        if(textField.getText().toString().isEmpty()){
+            textField.setError("Error");
+            valid = false;
+        }else {
+            valid = true;
         }
-        else {
-            mAuth.createUserWithEmailAndPassword(Name, Pass)
 
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (task.isSuccessful()) {
-
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                SharedPreferences.Editor editor = s.edit();
-                                editor.putString("name", Name);
-                                editor.commit();
-                                finish();
-                            } else {
-                                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-        }
-    }
-    private void getSavedUserName(){
-        String user=s.getString("name",null);
-        if (user != null) {
-            email.setText(user);
-        }
+        return valid;
     }
 }
-
-
-
-
