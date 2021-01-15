@@ -12,38 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        <activity android:name=".section7"-->
-<!--            android:parentActivityName=".choose_symptom"></activity>-->
-<!--        <activity android:name=".section6"-->
-<!--            android:parentActivityName=".choose_symptom"/>-->
-<!--        <activity android:name=".section5"-->
-<!--            android:parentActivityName=".choose_symptom"/>-->
-<!--        <activity android:name=".section4"-->
-<!--            android:parentActivityName=".choose_symptom"/>-->
-<!--        <activity android:name=".section3"-->
-<!--            android:parentActivityName=".choose_symptom"/>-->
-<!--        <activity android:name=".section2"-->
-<!--            android:parentActivityName=".choose_symptom"/>-->
-        <activity android:name=".login2">
+
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <activity android:name=".section1"-->
-<!--            android:parentActivityName=".choose_symptom"-->
-<!--            ></activity>-->
+
         <activity android:name=".CheckActivity" />
         <activity android:name=".ListViews" />
         <activity android:name=".Dr_profile" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".user_interface" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".StratActivity" />
-        <activity android:name=".ReminderActivity" />
         <activity android:name=".TwoFragmentsActivity" />
-        <activity android:name=".register" />
 
         <receiver android:name=".AlarmReceiver"/>
     </application>

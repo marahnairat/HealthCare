@@ -2,6 +2,7 @@ package com.example.healthcare;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -127,16 +128,8 @@ int clustersdata[]= {10,30,50,70,90,110,130};
         getAllSpecializationsFromFireStore(res);
 
 //
-
-
-
-
-
-
-
-
-//        Intent i = new Intent(getBaseContext(),ListViews.class);
-//                startActivity(i);
+        Intent i = new Intent(getBaseContext(),ListViews.class);
+                startActivity(i);
 
     }
 
