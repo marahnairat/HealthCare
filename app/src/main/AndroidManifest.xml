@@ -24,7 +24,7 @@
 <!--            android:parentActivityName=".choose_symptom"/>-->
 <!--        <activity android:name=".section2"-->
 <!--            android:parentActivityName=".choose_symptom"/>-->
-        <activity android:name=".TwoFragmentsActivity">
+        <activity android:name=".login2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,6 +42,10 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".StratActivity" />
         <activity android:name=".ReminderActivity" />
+        <activity android:name=".TwoFragmentsActivity" />
+        <activity android:name=".register" />
+
+        <receiver android:name=".AlarmReceiver"/>
     </application>
 
 </manifest>
