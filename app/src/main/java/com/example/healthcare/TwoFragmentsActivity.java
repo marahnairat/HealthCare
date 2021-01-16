@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -127,8 +129,6 @@ int clustersdata[]= {10,30,50,70,90,110,130};
         Log.d("Document", "RESUIUUUUUUUUUUUULLLT " +res );
         getAllSpecializationsFromFireStore(res);
 
-        Intent i = new Intent(getBaseContext(),ListViews.class);
-                startActivity(i);
 
     }
 
@@ -376,6 +376,9 @@ cb.setOnClickListener(new View.OnClickListener() {
                         for(int i=0;i<5;i++)
                         Log.d("result of knnnnnn", resultKNN.get(i) + "\n" );
 
+                        Intent i = new Intent(getBaseContext(),ListViews.class);
+                        i.putExtra("array of doctors",resultKNN);
+                        startActivity(i);
 
 
                     }
@@ -424,7 +427,7 @@ class Pair
     public int[] getArray2() { return array2; }
 }
 
-class DataObject  {
+class DataObject implements Parcelable {
     int x;
     int y;
     double distance;
@@ -445,6 +448,38 @@ class DataObject  {
         this.name = name;
 
     }
+
+    protected DataObject(Parcel in) {
+        x = in.readInt();
+        y = in.readInt();
+        distance = in.readDouble();
+        name = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(x);
+        dest.writeInt(y);
+        dest.writeDouble(distance);
+        dest.writeString(name);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<DataObject> CREATOR = new Creator<DataObject>() {
+        @Override
+        public DataObject createFromParcel(Parcel in) {
+            return new DataObject(in);
+        }
+
+        @Override
+        public DataObject[] newArray(int size) {
+            return new DataObject[size];
+        }
+    };
 
     public String getName() {
         return name;
