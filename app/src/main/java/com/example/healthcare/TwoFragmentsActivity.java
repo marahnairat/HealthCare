@@ -127,7 +127,6 @@ int clustersdata[]= {10,30,50,70,90,110,130};
         Log.d("Document", "RESUIUUUUUUUUUUUULLLT " +res );
         getAllSpecializationsFromFireStore(res);
 
-//
         Intent i = new Intent(getBaseContext(),ListViews.class);
                 startActivity(i);
 
@@ -332,7 +331,7 @@ cb.setOnClickListener(new View.OnClickListener() {
                                         Log.d(" specialisation is: ", document.getId() );
                                         Log.d("specialisation weight ", document.getId() + " => " + res);
                                         spec = document.getId();
-                                        getDoctors(spec);
+                                        getDoctorstoCalcAlgo(spec);
                                     }
                                 }
 
@@ -347,7 +346,7 @@ cb.setOnClickListener(new View.OnClickListener() {
 
     }
 
-    public void getDoctors(String specialize) {
+    public void getDoctorstoCalcAlgo(String specialize) {
         ArrayList<DataObject> doctors = new ArrayList<DataObject>();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("specialisations").document(specialize).collection("Doctors")
