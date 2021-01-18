@@ -11,11 +11,11 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class ReservationActivity extends AppCompatActivity {
+public class ReservationActivity extends AppCompatActivity implements singlechoice.SingleChoiceListener{
         Button selectDate,button;
         TextView date;
         DatePickerDialog datePickerDialog;
@@ -23,12 +23,12 @@ public class ReservationActivity extends AppCompatActivity {
         int month;
         int dayOfMonth;
         Calendar calendar;
-
+TextView text_hour;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.reservation_activity);
-
+            text_hour = findViewById(R.id.textView5);
             selectDate = findViewById(R.id.btnDate);
             date = findViewById(R.id.tvSelectedDate);
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -46,7 +46,7 @@ public class ReservationActivity extends AppCompatActivity {
                             new DatePickerDialog.OnDateSetListener() {
                                 @Override
                                 public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                                    date.setText(day + "/" + (month + 1) + "/" + year);
+                                    date.setText("Selected Day:"+day + "/" + (month + 1) + "/" + year);
                                 }
                             }, year, month, dayOfMonth);
                     datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
@@ -55,18 +55,45 @@ public class ReservationActivity extends AppCompatActivity {
                 }
             });
             button = (Button) findViewById(R.id.button);
-            button.setOnClickListener(new View.OnClickListener() {
+           /* button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     loadFragment(new user_appointment_fragment());
 
 }});
+*/
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DialogFragment singleChoiceDialog = new singlechoice();
+                    singleChoiceDialog.setCancelable(false);
+                    singleChoiceDialog.show(getSupportFragmentManager(), "Single Choice Dialog");
+
+
+                }
+            });
+
+
+
+
+
+
         }
 
+    @Override
+    public void onPositiveButtonClicked(String[] list, int position) {
+        text_hour.setText("Selected Hour = " + list[position]);
+    }
+
+    @Override
+    public void onNegativeButtonClicked() {
+        text_hour.setText("Reservation  hour is  canceled");
+    }
+/*
     private void loadFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.check_frame, fragment);
         fragmentTransaction.commit(); // save the changes
-    }
-    }
+    }*/
+    }//END CLASS
