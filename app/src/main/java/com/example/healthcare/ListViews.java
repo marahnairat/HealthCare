@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import org.json.JSONArray;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ListViews extends Activity {
@@ -18,13 +19,14 @@ public class ListViews extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nearest5_dr);
-        populateDoctorsList();
+        ArrayList<DataObject> docs = (ArrayList<DataObject>) getIntent().getSerializableExtra("array of doctors");
+        populateDoctorsList(docs);
     }
 
-    private void populateDoctorsList() {
+    private void populateDoctorsList(ArrayList<DataObject> docs) {
 
 
-        ArrayList<Doctor> arrayOfDoctors = Doctor.getDoctors();
+        ArrayList<Doctor> arrayOfDoctors = Doctor.getDoctors(docs);
         // Create the adapter to convert the array to views
         DoctorsAdapter adapter = new DoctorsAdapter(this, arrayOfDoctors);
         // Attach the adapter to a ListViews
