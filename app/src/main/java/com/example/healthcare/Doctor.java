@@ -6,10 +6,12 @@ public class Doctor {
 
     public String name;
     public String hometown;
+    public String phone;
 
-    public Doctor(String name, String hometown) {
+    public Doctor(String name, String hometown, String phone) {
         this.name = name;
         this.hometown = hometown;
+        this.phone = phone;
     }
 
 
@@ -22,6 +24,7 @@ public class Doctor {
     public String getHometown(){
         return hometown;
     }
+    public String getPhone(){  return phone; }
 
     public static ArrayList<Doctor> getDoctors(ArrayList<DataObject> docs) {
         ArrayList<Doctor> users = new ArrayList<Doctor>();
@@ -29,7 +32,7 @@ public class Doctor {
 //        users.add(new Doctor("Marla", "San Francisco"));
 //        users.add(new Doctor("Sarah", "San Marco"));
         for (int d=0;d<5;d++)
-            users.add(new Doctor(docs.get(d).name, "San Diego"));
+            users.add(new Doctor(docs.get(d).name, docs.get(d).city,docs.get(d).phone));
         return users;
     }
 }
