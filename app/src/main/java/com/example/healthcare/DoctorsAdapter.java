@@ -33,9 +33,11 @@ public class DoctorsAdapter extends ArrayAdapter<Doctor> {
 
         TextView docName = (TextView) convertView.findViewById(R.id.dr1_name);
         TextView docHome = (TextView) convertView.findViewById(R.id.dr1_addres);
+        TextView docPhone = (TextView) convertView.findViewById(R.id.dr1_phone);
         // Populate the data into the template view using the data object
         docName.setText(doctor.name);
         docHome.setText(doctor.hometown);
+        docPhone.setText(doctor.phone);
         // Return the completed view to render on screen
         return convertView;
 

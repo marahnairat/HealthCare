@@ -51,6 +51,16 @@
             tools:layout_conversion_absoluteWidth="255dp"
             tools:layout_editor_absoluteX="156dp"
             tools:layout_editor_absoluteY="226dp" />
+        <TextView
+            android:id="@+id/dr1_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="        Text  "
+            android:textSize="18sp"
+            tools:layout_conversion_absoluteHeight="24dp"
+            tools:layout_conversion_absoluteWidth="255dp"
+            tools:layout_editor_absoluteX="156dp"
+            tools:layout_editor_absoluteY="226dp" />
 
 
     </LinearLayout>
