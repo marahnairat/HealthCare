@@ -30,13 +30,11 @@
         <activity android:name=".CheckActivity" />
         <activity android:name=".ListViews" />
         <activity android:name=".Dr_profile" />
-        <activity android:name=".ReservationActivity" />
+        <activity android:name=".user_interface" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".StratActivity" />
 
-
-        <activity android:name=".mycurrentlocation" >
-
+        <activity android:name=".TwoFragmentsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
