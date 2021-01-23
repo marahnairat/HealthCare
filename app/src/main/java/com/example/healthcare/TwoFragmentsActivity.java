@@ -41,6 +41,8 @@ public class TwoFragmentsActivity extends FragmentActivity implements
     HashMap<String, String> map = new HashMap<String, String>();
     String result=" ";
     public int res;
+    int lat= 0;
+    int  lon=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -372,6 +374,9 @@ cb.setOnClickListener(new View.OnClickListener() {
                         }
 
                         ArrayList<DataObject> resultKNN = new ArrayList<DataObject>();//doctors
+//                        Intent m = new Intent(getBaseContext(),mycurrentlocation.class);
+//                       lon =  (int)(m.getSerializableExtra("LONGITUDE"));
+//                       lat =  (int)(m.getSerializableExtra("LATITUDE"));
 
                         DataObject patient = new DataObject(2, 3);// patient
                         resultKNN = kNN(patient, doctors);

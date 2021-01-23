@@ -2,6 +2,7 @@ package com.example.healthcare;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -30,8 +31,8 @@ public class mycurrentlocation extends AppCompatActivity implements LocationList
     Button button_location;
     TextView textView_location;
     LocationManager locationManager;
-    double lat=0.0;
-    double lon=0.0;
+    int lat=0;
+    int lon=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,9 +79,16 @@ public class mycurrentlocation extends AppCompatActivity implements LocationList
 
     @Override
     public void onLocationChanged(Location location) {
-        Toast.makeText(this, ""+location.getLatitude()+","+location.getLongitude(), Toast.LENGTH_SHORT).show();
-        lat=location.getLatitude();
-        lon=location.getLongitude();
+      //  Toast.makeText(this, ""+location.getLatitude()+","+location.getLongitude(), Toast.LENGTH_SHORT).show();
+        lat=(int)location.getLatitude();
+        lon=(int)location.getLongitude();
+        Toast.makeText(this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(getBaseContext(),mycurrentlocation.class);
+       i.putExtra("LONGITUDE",lon);
+        i.putExtra("LATITUDE",lat);
+
+
+
         try {
             Geocoder geocoder = new Geocoder(mycurrentlocation.this, Locale.getDefault());
             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
