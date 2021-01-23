@@ -35,6 +35,7 @@ import java.util.Map;
 public class TwoFragmentsActivity extends FragmentActivity implements
         OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
    // List<String> valuesselected = Arrays.asList();
+    String specialization_for_listview="";
     ArrayList<String>  valuesselected=new ArrayList<String>();
     ArrayList<String>  list_of_doctors=new ArrayList<String>();
     HashMap<String, String> map = new HashMap<String, String>();
@@ -331,6 +332,7 @@ cb.setOnClickListener(new View.OnClickListener() {
                                         Log.d(" specialisation is: ", document.getId() );
                                         Log.d("specialisation weight ", document.getId() + " => " + res);
                                         spec = document.getId();
+                                        specialization_for_listview=spec;
                                         getDoctorstoCalcAlgo(spec);
                                     }
                                 }
@@ -378,6 +380,7 @@ cb.setOnClickListener(new View.OnClickListener() {
 
                         Intent i = new Intent(getBaseContext(),ListViews.class);
                         i.putExtra("array of doctors",resultKNN);
+                        i.putExtra("specialization",specialization_for_listview);
                         startActivity(i);
 
 

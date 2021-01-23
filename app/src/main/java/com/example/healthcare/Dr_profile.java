@@ -26,6 +26,7 @@ public class Dr_profile extends AppCompatActivity {
     TextView name;
     TextView town;
     TextView phone;
+    TextView specialization;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +35,15 @@ public class Dr_profile extends AppCompatActivity {
         name=  findViewById(R.id.tv_name);
         town=findViewById(R.id.tv_address);
         phone= findViewById(R.id.phone_num);
-
+        specialization=findViewById(R.id.spec);
         String namedr=getIntent().getStringExtra("name");
         String towndr=getIntent().getStringExtra("town");
         String phonedr=getIntent().getStringExtra("phone");
+        String spical=getIntent().getStringExtra("specialization");
         name.setText(namedr);
         town.setText(towndr);
         phone.setText(phonedr);
+        specialization.setText(spical);
         mEditTextNumber = findViewById(R.id.phone_num);
         Button call_btn = findViewById(R.id.delivery_bn);
         call_btn.setOnClickListener(new View.OnClickListener() {
