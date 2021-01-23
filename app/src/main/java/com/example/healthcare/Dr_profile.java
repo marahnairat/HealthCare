@@ -57,7 +57,8 @@ public class Dr_profile extends AppCompatActivity {
         booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeAppointment();
+               makeAppointment();
+
             }
         });
 
@@ -66,8 +67,10 @@ public class Dr_profile extends AppCompatActivity {
 
     private void makeAppointment() {
 
-        Intent i = new Intent(getBaseContext(),user_interface.class);
+        Intent i = new Intent(getBaseContext(),ReservationActivity.class);
         startActivity(i);
+//        Intent reservationIntent = new Intent(getApplicationContext(), ReservationActivity.class);
+//                startActivity(reservationIntent);
 
     }
 
