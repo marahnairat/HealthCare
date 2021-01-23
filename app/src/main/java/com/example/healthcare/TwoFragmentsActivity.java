@@ -361,7 +361,7 @@ cb.setOnClickListener(new View.OnClickListener() {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                         doctors.add(new DataObject((int) document.getGeoPoint("location").getLatitude(),
                                                 (int) document.getGeoPoint("location").getLongitude()
-                                                ,document.get("name").toString(),document.get("city").toString(),document.get("phone").toString()));
+                                                ,document.get("name").toString(),document.get("city").toString(),document.get("phone").toString(),document.get("image").toString()));
 
 
 
@@ -398,7 +398,7 @@ cb.setOnClickListener(new View.OnClickListener() {
         DataObject ref ;
         for (int i = 0; i < objs.size(); i++) {
             ref = objs.get(i);
-            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.name,ref.city,ref.phone));
+            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.name,ref.city,ref.phone,ref.image));
         }
 
 //sorting distance.
@@ -437,25 +437,28 @@ class DataObject implements Parcelable {
     String name;
     String city;
     String phone;
+    String image;
 
     public DataObject(int x, int y)
     { this.x = x;
         this.y = y; }
 
-    public DataObject(int x, int y, String name, String  city,String phone)
+    public DataObject(int x, int y, String name, String  city,String phone,String image)
     {
         this.x = x;
         this.y = y;
         this.name = name;
         this.city = city;
         this.phone = phone;
+        this.image = image;
     }
-    public DataObject(double distance, String name, String  city,String phone)
+    public DataObject(double distance, String name, String  city,String phone,String image)
     {
         this.distance = distance;
         this.name = name;
         this.city = city;
         this.phone = phone;
+        this.image = image;
     }
 
     protected DataObject(Parcel in) {
@@ -465,6 +468,7 @@ class DataObject implements Parcelable {
         name = in.readString();
         city = in.readString();
         phone = in.readString();
+        image = in.readString();
     }
 
     @Override
@@ -475,6 +479,7 @@ class DataObject implements Parcelable {
         dest.writeString(name);
         dest.writeString(city);
         dest.writeString(phone);
+        dest.writeString(image);
     }
 
     @Override
@@ -503,7 +508,6 @@ class DataObject implements Parcelable {
     public String getPhone() {
         return phone;
     }
-
     public double getDistance() {
         return distance;
     }

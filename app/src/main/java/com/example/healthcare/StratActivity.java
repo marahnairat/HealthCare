@@ -17,10 +17,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 
 import butterknife.BindView;
 
-public class StratActivity extends AppCompatActivity {
+public class StratActivity extends FragmentActivity implements
+       NewsActivity.NewsActivityListener {
     @BindView(R.id.startcheck) Button start;
 
     private static final int REQUEST_CALL = 1;
