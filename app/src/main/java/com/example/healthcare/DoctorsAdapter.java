@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class DoctorsAdapter extends ArrayAdapter<Doctor> {
@@ -30,15 +34,17 @@ public class DoctorsAdapter extends ArrayAdapter<Doctor> {
 
         Doctor doctor= (Doctor) getItem(position);
 
-
+        ImageView docImage=(ImageView)convertView.findViewById(R.id.image_dr1);
         TextView docName = (TextView) convertView.findViewById(R.id.dr1_name);
         TextView docHome = (TextView) convertView.findViewById(R.id.dr1_addres);
         TextView docPhone = (TextView) convertView.findViewById(R.id.dr1_phone);
         // Populate the data into the template view using the data object
+
         docName.setText(doctor.name);
         docHome.setText(doctor.hometown);
         docPhone.setText(doctor.phone);
-        // Return the completed view to render on screen
+        Picasso.get().load(doctor.image).into(docImage);
+      // Return the completed view to render on screen
         return convertView;
 
     }
