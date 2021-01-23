@@ -60,6 +60,7 @@ public class TwoFragmentsActivity extends FragmentActivity implements
         but1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 continueCheck(v);
+
             }
         });
 
