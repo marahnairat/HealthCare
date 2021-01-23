@@ -23,12 +23,24 @@ public class Dr_profile extends AppCompatActivity {
 
     private static final int REQUEST_CALL = 1;
     private TextView mEditTextNumber;
+    TextView name;
+    TextView town;
+    TextView phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dr_profile);
+        name=  findViewById(R.id.tv_name);
+        town=findViewById(R.id.tv_address);
+        phone= findViewById(R.id.phone_num);
 
+        String namedr=getIntent().getStringExtra("name");
+        String towndr=getIntent().getStringExtra("town");
+        String phonedr=getIntent().getStringExtra("phone");
+        name.setText(namedr);
+        town.setText(towndr);
+        phone.setText(phonedr);
         mEditTextNumber = findViewById(R.id.phone_num);
         Button call_btn = findViewById(R.id.delivery_bn);
         call_btn.setOnClickListener(new View.OnClickListener() {

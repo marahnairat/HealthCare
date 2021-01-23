@@ -1,6 +1,8 @@
 package com.example.healthcare;
 
 import android.content.Intent;
+import android.util.Log;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -32,22 +34,35 @@ public class ListViews extends Activity {
         // Attach the adapter to a ListViews
 
         ListView listView = (ListView) findViewById(R.id.doctor_list);
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            switch(position){
-                case 0:
-                    //Toast.makeText(getApplicationContext(), (String)parent.getItemAtPosition(position), Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(ListViews.this,Dr_profile.class);
-                    startActivity(i);
-                    break;
-                case 1:
-                    Intent i1 = new Intent(ListViews.this,Dr_profile.class);
-                    startActivity(i1);
-                    break;
-
-
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Doctor dr = adapter.getItem(i);
+                Intent intent=new Intent(ListViews.this,Dr_profile.class);
+              intent.putExtra("name",dr.getName());
+              intent.putExtra("town",dr.getHometown());
+              intent.putExtra("phone",dr.getPhone());
+                Log.d("1",dr.getName());
+                startActivity(intent);
             }
         });
-        listView.setAdapter(adapter);
+//        listView.setOnItemClickListener((parent, view, position, id) -> {
+//            switch(position){
+//                case 0:
+//                    //Toast.makeText(getApplicationContext(), (String)parent.getItemAtPosition(position), Toast.LENGTH_LONG).show();
+//                    Intent i = new Intent(ListViews.this,Dr_profile.class);
+//                    startActivity(i);
+//                    break;
+//                case 1:
+//                    Intent i1 = new Intent(ListViews.this,Dr_profile.class);
+//                    startActivity(i1);
+//                    break;
+//
+//
+//            }
+//        });
+
 
     }
 

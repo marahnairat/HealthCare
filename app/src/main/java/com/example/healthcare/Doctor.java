@@ -7,11 +7,16 @@ public class Doctor {
     public String name;
     public String hometown;
     public String phone;
+    public String specialization;
+
 
     public Doctor(String name, String hometown, String phone) {
         this.name = name;
         this.hometown = hometown;
         this.phone = phone;
+    }
+
+    public Doctor(Doctor doctor) {
     }
 
 

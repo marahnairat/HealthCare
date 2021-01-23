@@ -55,7 +55,7 @@ public class SignupActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             FirebaseUser user =fauth.getCurrentUser();
-                            Toast.makeText(SignupActivity.this,"Avvount created ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this,"Acount created ",Toast.LENGTH_SHORT).show();
                             DocumentReference df =fstore.collection("Users").document(user.getUid());
                             Map<String,Object> userinfo =new HashMap<>();
                             userinfo.put("FullName",fullName.getText().toString());
@@ -63,6 +63,7 @@ public class SignupActivity extends AppCompatActivity {
                             userinfo.put("PhoneNumber",phone.getText().toString());
                             userinfo.put("isUser","1");
                             df.set(userinfo);
+                            Toast.makeText(SignupActivity.this,"data in map ",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                         }
                     }).addOnFailureListener(new OnFailureListener() {
