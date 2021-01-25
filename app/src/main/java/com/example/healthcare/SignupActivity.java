@@ -32,7 +32,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_final);
         fauth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
 
@@ -65,6 +65,7 @@ public class SignupActivity extends AppCompatActivity {
                             df.set(userinfo);
                             Toast.makeText(SignupActivity.this,"data in map ",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                            finish();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -78,7 +79,7 @@ public class SignupActivity extends AppCompatActivity {
         goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(),loginFinal.class));
             }
         });
     }

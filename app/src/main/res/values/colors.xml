@@ -19,6 +19,26 @@
     <color name="followingBg">#8CCCEE</color>
     <color name="grey">#E5E5E5</color>
     <color name="blueb">#BCD6EB</color>
-    <color name="white">#FFFFFF</color>
+
     <color name="teal_700">#9DC0D3</color>
+
+
+    <color name="colorAccentButton">#4780D2</color>
+    <color name="colorAccentDark">#346cbc</color>
+    <color name="colorPrimaryLight">#ffcc80</color>
+    <color name="colorPrimaryMedium">#FFC10E</color>
+
+
+    <color name="colorAccentAlt">#46ca70</color>
+    <color name="colorAppBackground">#f2f2f2</color>
+
+    <color name="white_10">#FFFFFF</color>
+    <color name="colorText">#FCF9F0</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#727272</color>
+    <color name="colorTextBoder">#bdbdbd</color>
+    <color name="colorDivider">#F5F5F5</color>
+    <color name="colorSender">#E0E0E0</color>
+    <color name="colorDividerTransparent">#77B6B6B6</color>
+    <color name="white">#ffffff</color>
 </resources>

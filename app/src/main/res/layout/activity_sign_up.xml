@@ -53,11 +53,11 @@
 
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:nextFocusDown="@+id/password"
+                android:nextFocusDown="@+id/loginPassword"
                 android:singleLine="true" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/loginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

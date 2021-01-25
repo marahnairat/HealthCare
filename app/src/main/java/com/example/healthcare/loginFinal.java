@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,19 +22,31 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class LoginActivity extends AppCompatActivity {
+public class loginFinal extends AppCompatActivity {
 
     EditText email,password;
     Button loginBtn,gotoRegister;
     boolean valid = true;
     FirebaseAuth fauth;
     FirebaseFirestore fstore;
+//    Button registerUser;
+//    EditText username, password;
+//    Button loginButton;
+//    TextView doctor_login;
+//    String user, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login2);
+        setContentView(R.layout.merge_login_view);
 
+
+        Window window = this.getWindow();
+
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
+
+
+//        Paper.init(this);
 
         fauth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
@@ -52,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                     fauth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(LoginActivity.this,"Loggedin successfully  ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(loginFinal.this,"Loggedin successfully  ",Toast.LENGTH_SHORT).show();
                             CheckUserAccessLevel(authResult.getUser().getUid());
 
                         }

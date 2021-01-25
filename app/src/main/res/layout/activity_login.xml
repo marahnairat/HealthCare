@@ -37,19 +37,19 @@
         android:gravity="center"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:nextFocusDown="@+id/password"
+        android:nextFocusDown="@+id/loginPassword"
         android:singleLine="true"
         android:textStyle="bold"
          />
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/loginPassword"
         android:layout_width="357dp"
         android:layout_height="50dp"
         android:fontFamily="monospace"
         android:gravity="center"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:nextFocusDown="@+id/password"
+        android:nextFocusDown="@+id/loginPassword"
         android:singleLine="true"
         android:textStyle="bold"
          />
