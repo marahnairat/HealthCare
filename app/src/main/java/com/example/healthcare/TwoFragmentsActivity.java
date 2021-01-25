@@ -374,11 +374,15 @@ cb.setOnClickListener(new View.OnClickListener() {
                         }
 
                         ArrayList<DataObject> resultKNN = new ArrayList<DataObject>();//doctors
-//                        Intent m = new Intent(getBaseContext(),mycurrentlocation.class);
-//                       lon =  (int)(m.getSerializableExtra("LONGITUDE"));
-//                       lat =  (int)(m.getSerializableExtra("LATITUDE"));
 
-                        DataObject patient = new DataObject(2, 3);// patient
+                        int lat=getIntent().getIntExtra("LONGITUDE",0);
+                        int lon=getIntent().getIntExtra("LATITUDE",0);
+                        Intent mIntent = getIntent();
+                       // int intValue = mIntent.getIntExtra("intVariableName", 0);
+
+
+
+                        DataObject patient = new DataObject(lat, lon);// patient
                         resultKNN = kNN(patient, doctors);
 
                         for(int i=0;i<5;i++)

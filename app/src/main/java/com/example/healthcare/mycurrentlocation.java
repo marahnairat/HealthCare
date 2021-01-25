@@ -83,9 +83,10 @@ public class mycurrentlocation extends AppCompatActivity implements LocationList
         lat=(int)location.getLatitude();
         lon=(int)location.getLongitude();
         Toast.makeText(this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(getBaseContext(),mycurrentlocation.class);
-       i.putExtra("LONGITUDE",lon);
-        i.putExtra("LATITUDE",lat);
+        Intent intent=new Intent(mycurrentlocation.this,TwoFragmentsActivity.class);
+       intent.putExtra("LONGITUDE",lon);
+        intent.putExtra("LATITUDE",lat);
+
 
 
 

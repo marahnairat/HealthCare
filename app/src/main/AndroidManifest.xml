@@ -43,10 +43,11 @@
         <activity android:name=".StratActivity" />
         <activity android:name=".ReservationActivity" />
         <activity android:name=".mycurrentlocation" />
-        <activity android:name=".TwoFragmentsActivity" />
+
         <activity android:name=".ReminderActivity" />
 
         <receiver android:name=".AlarmReceiver" />
+        <activity android:name=".TwoFragmentsActivity" />
     </application>
 
 </manifest>
