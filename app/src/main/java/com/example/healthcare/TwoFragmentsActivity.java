@@ -97,7 +97,7 @@ for(int i=0;i<valuesselected.size();i++)
     public void continueCheck(View view) {
         int data[] = new int[valuesselected.size()];
         for (int m=0;m<valuesselected.size();m++) {
-            data[m]= (int) Double.parseDouble(valuesselected.get(m))*10;
+            data[m]= (int) (Double.parseDouble(valuesselected.get(m))*10);
         }
 //        int data[]={13,15,33,41,14,19,75,16};
         int noofclusters=3;
@@ -254,6 +254,8 @@ cb.setOnClickListener(new View.OnClickListener() {
         }
 
         for(int j=0;j<noofclusters;j++){
+            if (clusternodecount[j]==0)
+                continue;
             centroid[1][ j]=(centroid[1][j]/clusternodecount[j]);
         }
 
@@ -353,6 +355,8 @@ cb.setOnClickListener(new View.OnClickListener() {
 
     public void getDoctorstoCalcAlgo(String specialize) {
         ArrayList<DataObject> doctors = new ArrayList<DataObject>();
+        String s=specialize;
+        Log.d("ssssssssssssssssspppp",s);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("specialisations").document(specialize).collection("Doctors")
                 .get()
@@ -364,7 +368,10 @@ cb.setOnClickListener(new View.OnClickListener() {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                         doctors.add(new DataObject((int) document.getGeoPoint("location").getLatitude(),
                                                 (int) document.getGeoPoint("location").getLongitude()
-                                                ,document.get("name").toString(),document.get("city").toString(),document.get("phone").toString(),document.get("image").toString()));
+                                                ,document.get("name").toString(),
+                                                document.get("city").toString(),
+                                                document.get("phone").toString()
+                                                ,document.get("image").toString()));
 
 
 
