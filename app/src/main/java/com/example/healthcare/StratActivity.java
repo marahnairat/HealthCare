@@ -8,10 +8,13 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +33,8 @@ public class StratActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
+        android.widget.Toolbar toolbar = findViewById(R.id.toolbar2);
+        setActionBar(toolbar);
         Button start= (Button) findViewById(R.id.startcheck);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +81,20 @@ public class StratActivity extends FragmentActivity implements
 
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        if(id == R.id.signout){
+            Toast.makeText(getApplicationContext(),"signout",Toast.LENGTH_SHORT).show();
+        }
+        return true ;
+    }
 
 
     private void callAmbalance() {

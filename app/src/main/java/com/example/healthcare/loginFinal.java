@@ -43,7 +43,7 @@ public class loginFinal extends AppCompatActivity {
 
         Window window = this.getWindow();
 
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.blue));
 
 
 //        Paper.init(this);

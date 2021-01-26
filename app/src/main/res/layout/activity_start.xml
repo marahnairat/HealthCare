@@ -2,17 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.healthcare.StratActivity"
     android:orientation="vertical"
-    android:id="@+id/layout_two"
-    >
-android:id="@+id/toolbar2"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary"
-    android:minHeight="?attr/actionBarSize"
-    android:theme="?attr/actionBarTheme" />
+    android:id="@+id/layout_two">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/blue">
+
+        <Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/blue"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:title="@string/app_name"
+            android:titleMarginStart="40dp"
+            android:logo="@drawable/ic_menu"
+
+            >
+
+
+        </Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +68,7 @@ android:id="@+id/toolbar2"
             android:layout_height="120dp"
             android:layout_margin="15dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/circle"
+            android:background="@drawable/btn_white"
             android:padding="3dp"
             android:scaleType="centerInside"
             android:src="@drawable/amb"
@@ -65,7 +80,7 @@ android:id="@+id/toolbar2"
             android:layout_height="120dp"
             android:layout_margin="9dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/circle"
+            android:background="@drawable/btn_white"
             android:padding="5dp"
             android:scaleType="centerInside"
             android:src="@drawable/cal" />
