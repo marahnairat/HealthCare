@@ -332,13 +332,14 @@ cb.setOnClickListener(new View.OnClickListener() {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                     String spec="";
 //                                    Log.d("all documents", document.getId() + " => " + document.getData());
-                                    String alldoc=document.getData().values().toString();
-                                    if (res == Integer.parseInt(alldoc.substring(1,2))) {
+                                    int alldoc=document.getLong("index").intValue();
+                                    if (res == alldoc) {
                                         Log.d(" specialisation is: ", document.getId() );
                                         Log.d("specialisation weight ", document.getId() + " => " + res);
                                         spec = document.getId();
                                         specialization_for_listview=spec;
                                         getDoctorstoCalcAlgo(spec);
+                                        break;
                                     }
                                 }
 
@@ -357,18 +358,18 @@ cb.setOnClickListener(new View.OnClickListener() {
         ArrayList<DataObject> doctors = new ArrayList<DataObject>();
         String s=specialize;
         Log.d("ssssssssssssssssspppp",s);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("specialisations").document(specialize).collection("Doctors")
+        FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+        db1.collection("specialisations").document(specialize).collection("Doctors")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
 
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                         doctors.add(new DataObject((int) document.getGeoPoint("location").getLatitude(),
-                                                (int) document.getGeoPoint("location").getLongitude()
-                                                ,document.get("name").toString(),
+                                                (int) document.getGeoPoint("location").getLongitude(),document.get("name").toString(),
                                                 document.get("city").toString(),
                                                 document.get("phone").toString()
                                                 ,document.get("image").toString()));
