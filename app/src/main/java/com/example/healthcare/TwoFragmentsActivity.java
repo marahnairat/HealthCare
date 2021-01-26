@@ -1,9 +1,13 @@
 package com.example.healthcare;
 
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -16,7 +20,11 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -32,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class TwoFragmentsActivity extends FragmentActivity implements
+public class TwoFragmentsActivity extends FragmentActivity implements LocationListener ,
         OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
    // List<String> valuesselected = Arrays.asList();
     String specialization_for_listview="";
@@ -41,14 +49,38 @@ public class TwoFragmentsActivity extends FragmentActivity implements
     HashMap<String, String> map = new HashMap<String, String>();
     String result=" ";
     public int res;
-    int lat= 0;
-    int  lon=0;
+   int  lat;
+   int lon;
+    LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two_fragments);
 
+//        Intent mIntent = getIntent();
+//       lat = mIntent.getIntExtra("LATITUDE", 0);
+//       lon = mIntent.getIntExtra("LONGITUDE", 0);
+//        Toast.makeText(TwoFragmentsActivity.this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
+
+        LocationRequest locationRequest = LocationRequest.create();
+        locationRequest.setInterval(10000);
+        locationRequest.setFastestInterval(5000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        if (ContextCompat.checkSelfPermission(TwoFragmentsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(TwoFragmentsActivity.this,new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION
+            },100);
+        }
+        getLocation();
+//       final Button button_location = findViewById(R.id.button_location2);
+//        button_location.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                //create method
+//                getLocation();
+//            }
+//        });
 
         final Button button = (Button) findViewById(R.id.buttonchange);
         button.setOnClickListener(new View.OnClickListener() {
@@ -382,12 +414,14 @@ cb.setOnClickListener(new View.OnClickListener() {
 
                         ArrayList<DataObject> resultKNN = new ArrayList<DataObject>();//doctors
 
-                        int lat=getIntent().getIntExtra("LONGITUDE",0);
-                        int lon=getIntent().getIntExtra("LATITUDE",0);
-                        Intent mIntent = getIntent();
-                       // int intValue = mIntent.getIntExtra("intVariableName", 0);
+//                        int lat=getIntent().getIntExtra("LONGITUDE",0);
+//                        int lon=getIntent().getIntExtra("LATITUDE",0);
 
-
+//                        Intent mIntent = getIntent();
+//                      int lat = mIntent.getIntExtra("LATITUDE", 0);
+//                      int lon = mIntent.getIntExtra("LONGITUDE", 0);
+//
+//                       // Toast.makeText(TwoFragmentsActivity.this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
 
                         DataObject patient = new DataObject(lat, lon);// patient
                         resultKNN = kNN(patient, doctors);
@@ -428,10 +462,40 @@ cb.setOnClickListener(new View.OnClickListener() {
         });
         return  record;
     }
+    @SuppressLint("MissingPermission")
+    private void getLocation() {
 
+        try {
+            locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5,TwoFragmentsActivity.this);
 
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
+    }
 
+    @Override
+    public void onLocationChanged(Location location) {
+        lat=(int)location.getLatitude();
+        lon=(int)location.getLongitude();
+        Toast.makeText(this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
 }
 class Pair
 {

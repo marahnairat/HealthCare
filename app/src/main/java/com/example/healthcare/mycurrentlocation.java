@@ -31,8 +31,8 @@ public class mycurrentlocation extends AppCompatActivity implements LocationList
     Button button_location;
     TextView textView_location;
     LocationManager locationManager;
-    int lat=0;
-    int lon=0;
+    int lat;
+    int lon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,13 +80,13 @@ public class mycurrentlocation extends AppCompatActivity implements LocationList
     @Override
     public void onLocationChanged(Location location) {
       //  Toast.makeText(this, ""+location.getLatitude()+","+location.getLongitude(), Toast.LENGTH_SHORT).show();
-        lat=(int)location.getLatitude();
-        lon=(int)location.getLongitude();
+        lat=Integer.parseInt(String.valueOf(location.getLatitude()));
+        lon=Integer.parseInt(String.valueOf(location.getLongitude()));
         Toast.makeText(this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(mycurrentlocation.this,TwoFragmentsActivity.class);
-       intent.putExtra("LONGITUDE",lon);
+        intent.putExtra("LONGITUDE",lon);
         intent.putExtra("LATITUDE",lat);
-
+        startActivity(intent);
 
 
 
