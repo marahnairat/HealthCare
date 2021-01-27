@@ -13,6 +13,7 @@
 
     <!-- Circular progress bar used for loading news items -->
 
+
     <!-- Empty view is only visible when the list has no items. -->
     <TextView
         android:id="@+id/empty_view"

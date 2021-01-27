@@ -82,9 +82,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the title of the current news item in that TextView
         titleView.setText(formattedTitle);
 
-
-
-        // Return the list item view that is now showing the appropriate data
         return listItemView;
     }
 }

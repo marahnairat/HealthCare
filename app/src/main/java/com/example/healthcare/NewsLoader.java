@@ -1,6 +1,6 @@
 package com.example.healthcare;
 
-import android.content.AsyncTaskLoader;
+import androidx.loader.content.AsyncTaskLoader;
 import android.content.Context;
 
 import java.util.List;
