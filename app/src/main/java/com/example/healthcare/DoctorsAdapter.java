@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class DoctorsAdapter extends ArrayAdapter<Doctor> {
         docName.setText(doctor.name);
         docHome.setText(doctor.hometown);
         docPhone.setText(doctor.phone);
+//        Glide.with(getContext()).load(doctor.image).dontAnimate().into(docImage);
         Picasso.get().load(doctor.image).into(docImage);
       // Return the completed view to render on screen
         return convertView;

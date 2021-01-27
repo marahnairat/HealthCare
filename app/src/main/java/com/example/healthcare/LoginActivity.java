@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         fauth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
 

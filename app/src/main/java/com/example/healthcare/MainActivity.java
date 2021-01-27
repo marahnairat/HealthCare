@@ -1,5 +1,6 @@
 package com.example.healthcare;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.fragment.app.FragmentActivity;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +37,9 @@ ViewPager viewPager;
         tabLayout=findViewById(R.id.tab_layout);
         viewPager=findViewById(R.id.viewpager);
         android.widget.Toolbar toolbar = findViewById(R.id.toolbar2);
-        setActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.menu);
 
+        setActionBar(toolbar);
         ArrayList<String>arrayList=new ArrayList<>();
         arrayList.add("CHECKER");
         arrayList.add("HEALTH NEWS");
@@ -45,8 +52,7 @@ ViewPager viewPager;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
-        return true;
-
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -54,6 +60,17 @@ ViewPager viewPager;
         int id=item.getItemId();
         if(id == R.id.signout){
             Toast.makeText(getApplicationContext(),"signout",Toast.LENGTH_SHORT).show();
+
+            AuthUI.getInstance()
+                    .signOut(this)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            // user is now signed out
+                            startActivity(new Intent(MainActivity.this, loginFinal.class));
+                            finish();
+                        }
+                    });
         }
         return true ;
     }
