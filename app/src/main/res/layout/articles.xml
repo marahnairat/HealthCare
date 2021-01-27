@@ -2,7 +2,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- List of all the news items -->
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
@@ -11,10 +10,6 @@
         android:dividerHeight="@dimen/news_activity_divider"
         android:orientation="horizontal" />
 
-    <!-- Circular progress bar used for loading news items -->
-
-
-    <!-- Empty view is only visible when the list has no items. -->
     <TextView
         android:id="@+id/empty_view"
         android:layout_width="wrap_content"
