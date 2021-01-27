@@ -88,8 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="50dp"
-        android:background="@color/design_default_color_secondary"
-        android:onClick="continuCkeck"
+        android:background="@color/blue"
         android:text="Continue"
         android:textColor="#3F51B5" />
 

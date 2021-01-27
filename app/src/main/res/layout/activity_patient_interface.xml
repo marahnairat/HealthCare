@@ -22,7 +22,7 @@
         android:layout_marginRight="14dp"
         android:layout_marginBottom="296dp"
         android:background="#D3E6E4"
-        android:headerBackground="#057469" />
+        android:headerBackground="@color/blue" />
 
     <TextView
         android:id="@+id/textView"
@@ -90,21 +90,21 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="145dp"
+        android:layout_width="132dp"
+        android:layout_height="88dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginRight="220dp"
-        android:layout_marginBottom="583dp"
-        android:src="@drawable/patient" />
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="246dp"
+        android:layout_marginRight="246dp"
+        android:layout_marginBottom="613dp"
+        android:src="@drawable/ic_doctor_2" />
 
 
 </RelativeLayout>

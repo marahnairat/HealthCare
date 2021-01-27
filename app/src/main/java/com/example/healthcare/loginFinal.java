@@ -103,7 +103,7 @@ public class loginFinal extends AppCompatActivity {
                     finish();
                 }
                 if(documentSnapshot.getString("isUser")!=null){
-                    startActivity(new Intent(getApplicationContext(),StratActivity.class));
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     finish();
 
 

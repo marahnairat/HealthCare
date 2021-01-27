@@ -2,7 +2,6 @@ package com.example.healthcare;
 
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -16,11 +15,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
 
-public class NewsActivity extends Fragment  {
+public class NewsActivity extends Fragment {
 
     private static final String LOG_TAG = NewsActivity.class.getName();
     private static final String NEWS_REQUEST_URL =
@@ -35,16 +35,16 @@ public class NewsActivity extends Fragment  {
     }
 
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            activityCallback = (NewsActivityListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement NewsactiityListener");
-        }
-    }
+//    @Override
+//    public void onAttach(Activity activity) {
+//        super.onAttach(activity);
+//        try {
+//            activityCallback = (NewsActivityListener) activity;
+//        } catch (ClassCastException e) {
+//            throw new ClassCastException(activity.toString()
+//                    + " must implement NewsactiityListener");
+//        }
+//    }
 
     //We get the reference to the editText and the button setUp the OnClickListener
     @RequiresApi(api = Build.VERSION_CODES.M)

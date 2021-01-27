@@ -9,7 +9,6 @@
         android:id="@+id/rellay1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/grad"
         android:paddingBottom="20dp">
 
         <RelativeLayout
@@ -25,7 +24,7 @@
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:adjustViewBounds="true"
-                android:background="@drawable/circle"
+                android:background="@drawable/edit_bg"
                 android:padding="3dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/male" />
@@ -54,7 +53,7 @@
             android:fontFamily="sans-serif"
             android:text="palestine - jenin "
             android:textAllCaps="true"
-            android:textColor="@color/address"
+            android:textColor="@color/blue"
             android:textSize="14sp" />
 
         <ImageView
@@ -100,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Specialization"
-                    android:textColor="@color/headings"
+                    android:textColor="@color/blue"
                     android:textSize="13sp" />
 
                 <TextView
@@ -131,7 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phone"
-                    android:textColor="@color/headings"
+                    android:textColor="@color/blue"
                     android:textSize="13sp" />
 
                 <TextView

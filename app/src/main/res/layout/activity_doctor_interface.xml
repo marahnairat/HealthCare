@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B9F1E4">
+    android:background="#B9C9F1">
 
     <DatePicker
         android:id="@+id/datePicker1"
@@ -20,7 +20,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="340dp"
-        android:headerBackground="#356677" />
+        android:headerBackground="@color/blue" />
 
     <TextView
         android:id="@+id/textView"
@@ -107,7 +107,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="121dp"
+        android:layout_width="21dp"
         android:layout_height="128dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -115,7 +115,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/circle"
         android:scaleType="centerInside"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="27dp"
@@ -123,5 +122,5 @@
         android:layout_marginEnd="262dp"
         android:layout_marginRight="262dp"
         android:layout_marginBottom="555dp"
-        app:srcCompat="@drawable/male" />
+        app:srcCompat="@drawable/doctor" />
 </RelativeLayout>

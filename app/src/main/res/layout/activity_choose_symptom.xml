@@ -24,7 +24,6 @@
             android:layout_marginEnd="267dp"
             android:layout_marginRight="264dp"
             android:layout_marginBottom="333dp"
-            android:onClick="opensection2"
             android:text="Button" />
 
         <Button
@@ -37,7 +36,6 @@
             android:layout_marginEnd="267dp"
             android:layout_marginRight="264dp"
             android:layout_marginBottom="268dp"
-            android:onClick="opensection3"
             android:text="Button" />
 
         <Button
@@ -50,7 +48,6 @@
             android:layout_marginEnd="267dp"
             android:layout_marginRight="267dp"
             android:layout_marginBottom="203dp"
-            android:onClick="opensection4"
             android:text="Button" />
 
         <Button
@@ -77,7 +74,6 @@
             android:layout_marginEnd="267dp"
             android:layout_marginRight="267dp"
             android:layout_marginBottom="73dp"
-            android:onClick="opensection6"
             android:text="Button" />
 
         <Button
@@ -90,7 +86,6 @@
             android:layout_marginEnd="267dp"
             android:layout_marginRight="267dp"
             android:layout_marginBottom="8dp"
-            android:onClick="opensection7"
             android:text="Button" />
 
         <Button
@@ -103,7 +98,6 @@
             android:layout_marginEnd="267dp"
             android:layout_marginRight="267dp"
             android:layout_marginBottom="398dp"
-            android:onClick="opensection1"
             android:text="Button" />
 
         <TextView

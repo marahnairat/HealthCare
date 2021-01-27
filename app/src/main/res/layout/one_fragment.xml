@@ -6,7 +6,7 @@
     android:layout_marginTop="100dp"
     android:layout_marginLeft="20dp"
     android:background="@color/white"
-
+android:paddingBottom="20dp"
     >
 
 
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="20dp"
             android:onClick="onCheckboxClicked"
             android:text="1"
 
@@ -87,11 +87,13 @@
 
         <Button
             android:id="@+id/buttonchange"
-            android:layout_width="98dp"
+            android:layout_width="78dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
-            android:background="@color/gradEnd"
+            android:layout_marginTop="40dp"
+            android:background="@color/blue"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:text="ok"
 
             />
