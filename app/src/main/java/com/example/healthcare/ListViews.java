@@ -43,6 +43,7 @@ public class ListViews extends Activity {
               intent.putExtra("name",dr.getName());
               intent.putExtra("town",dr.getHometown());
               intent.putExtra("phone",dr.getPhone());
+              intent.putExtra("dr_id",dr.getDr_id());
                 String spec=getIntent().getStringExtra("specialization");
                 intent.putExtra("specialization",spec);
                 Log.d("1",dr.getName());

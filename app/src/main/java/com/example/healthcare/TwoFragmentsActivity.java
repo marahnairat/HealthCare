@@ -399,12 +399,14 @@ cb.setOnClickListener(new View.OnClickListener() {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
 
-                            for (QueryDocumentSnapshot document : task.getResult()) {
+                            for (QueryDocumentSnapshot document : task.getResult
+                                    ()) {
                                         doctors.add(new DataObject((int) document.getGeoPoint("location").getLatitude(),
                                                 (int) document.getGeoPoint("location").getLongitude(),document.get("name").toString(),
                                                 document.get("city").toString(),
                                                 document.get("phone").toString()
-                                                ,document.get("image").toString()));
+                                                ,document.get("image").toString(),
+                                                document.get("uid").toString()));
 
 
 
@@ -414,15 +416,6 @@ cb.setOnClickListener(new View.OnClickListener() {
                         }
 
                         ArrayList<DataObject> resultKNN = new ArrayList<DataObject>();//doctors
-
-//                        int lat=getIntent().getIntExtra("LONGITUDE",0);
-//                        int lon=getIntent().getIntExtra("LATITUDE",0);
-
-//                        Intent mIntent = getIntent();
-//                      int lat = mIntent.getIntExtra("LATITUDE", 0);
-//                      int lon = mIntent.getIntExtra("LONGITUDE", 0);
-//
-//                       // Toast.makeText(TwoFragmentsActivity.this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
 
                         DataObject patient = new DataObject(lat, lon);// patient
                         resultKNN = kNN(patient, doctors);
@@ -450,7 +443,7 @@ cb.setOnClickListener(new View.OnClickListener() {
         DataObject ref ;
         for (int i = 0; i < objs.size(); i++) {
             ref = objs.get(i);
-            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.name,ref.city,ref.phone,ref.image));
+            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.name,ref.city,ref.phone,ref.image,ref.dr_id));
         }
 
 //sorting distance.
@@ -519,27 +512,31 @@ class DataObject implements Parcelable {
     String name;
     String city;
     String phone;
+    String dr_id;
     String image;
 
     public DataObject(int x, int y)
     { this.x = x;
         this.y = y; }
 
-    public DataObject(int x, int y, String name, String  city,String phone,String image)
+    public DataObject(int x, int y, String name, String  city,String phone ,String image,String dr_id)
     {
         this.x = x;
         this.y = y;
         this.name = name;
         this.city = city;
         this.phone = phone;
+        this.dr_id = dr_id;
         this.image = image;
+
     }
-    public DataObject(double distance, String name, String  city,String phone,String image)
+    public DataObject(double distance, String name, String  city,String phone,String image, String dr_id)
     {
         this.distance = distance;
         this.name = name;
         this.city = city;
         this.phone = phone;
+        this.dr_id = dr_id;
         this.image = image;
     }
 
@@ -550,6 +547,7 @@ class DataObject implements Parcelable {
         name = in.readString();
         city = in.readString();
         phone = in.readString();
+        dr_id = in.readString();
         image = in.readString();
     }
 
@@ -561,6 +559,7 @@ class DataObject implements Parcelable {
         dest.writeString(name);
         dest.writeString(city);
         dest.writeString(phone);
+        dest.writeString(dr_id);
         dest.writeString(image);
     }
 

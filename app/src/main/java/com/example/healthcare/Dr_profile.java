@@ -39,6 +39,7 @@ public class Dr_profile extends AppCompatActivity {
         String namedr=getIntent().getStringExtra("name");
         String towndr=getIntent().getStringExtra("town");
         String phonedr=getIntent().getStringExtra("phone");
+        String dr_id=getIntent().getStringExtra("dr_id");
         String spical=getIntent().getStringExtra("specialization");
         name.setText(namedr);
         town.setText(towndr);
@@ -57,7 +58,9 @@ public class Dr_profile extends AppCompatActivity {
         booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               makeAppointment();
+                Intent i = new Intent(getBaseContext(),ReservationActivity.class);
+                i.putExtra("dr_id",dr_id);
+                startActivity(i);
 
             }
         });
@@ -65,14 +68,6 @@ public class Dr_profile extends AppCompatActivity {
     }
 
 
-    private void makeAppointment() {
-
-        Intent i = new Intent(getBaseContext(),ReservationActivity.class);
-        startActivity(i);
-//        Intent reservationIntent = new Intent(getApplicationContext(), ReservationActivity.class);
-//                startActivity(reservationIntent);
-
-    }
 
 
 
