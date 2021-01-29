@@ -1,6 +1,7 @@
 package com.example.healthcare;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
@@ -73,6 +74,18 @@ TextView text_hour;
                 }
             });
 
+
+            Button confirm = (Button) findViewById(R.id.confirm_button2);
+
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(ReservationActivity.this,MainActivity.class);
+                    startActivity(i);
+
+
+                }
+            });
 
 
 

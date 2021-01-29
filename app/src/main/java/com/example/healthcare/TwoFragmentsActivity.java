@@ -83,12 +83,12 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
 //        });
 
         final Button button = (Button) findViewById(R.id.buttonchange);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                onButtonClick();
-            }
-        });
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//
+//                onButtonClick();
+//            }
+//        });
 
         final Button but1 = (Button) findViewById(R.id.continueButton);
         but1.setOnClickListener(new View.OnClickListener() {
@@ -115,13 +115,13 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
 
     @Override
     public void onButtonClick() {
-        TwoFragment textFragment;
-        textFragment = (TwoFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.two_fragment);
-        textFragment.changeTextProperties(" "+result);
-        result=" ";
-for(int i=0;i<valuesselected.size();i++)
-        Log.i("Test", valuesselected.get(i));
+//        TwoFragment textFragment;
+//        textFragment = (TwoFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.two_fragment);
+//        textFragment.changeTextProperties(" ");
+//        result=" ";
+//for(int i=0;i<valuesselected.size();i++)
+//        Log.i("Test", valuesselected.get(i));
 
     }
 
