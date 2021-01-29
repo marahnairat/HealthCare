@@ -72,7 +72,7 @@
                 android:layout_below="@+id/d_name"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif"
-                android:text="palestine - jenin "
+                android:text="palestine "
                 android:textAllCaps="true"
                 android:textColor="@color/blue"
                 android:textSize="14sp" />
@@ -104,35 +104,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
                 android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Specialization"
-                        android:textColor="@color/blue"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/d_spec"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="heart and blood vessels "
-                        android:textColor="#000000"
-                        android:textSize="18sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/grey" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/phone_number"
