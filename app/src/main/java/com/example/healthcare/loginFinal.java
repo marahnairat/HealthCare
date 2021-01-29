@@ -99,7 +99,13 @@ public class loginFinal extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Log.d("TAG", "onSuccess:" + documentSnapshot.getData());
                 if(documentSnapshot.getString("isDoctor")!=null){
-                    startActivity(new Intent(getApplicationContext(),Dr_profile.class));
+                  String doctor_name= documentSnapshot.getString("FullName");
+                    String doctor_phone= documentSnapshot.getString("PhoneNumber");
+                    Intent intent = new Intent(loginFinal.this, Dr_profile_dr_side.class);
+                    intent.putExtra("doctor_name", doctor_name);
+                    intent.putExtra("doctor_phone", doctor_phone);
+                    startActivity(intent);
+//                    startActivity(new Intent(getApplicationContext(),Dr_profile_dr_side.class));
                     finish();
                 }
                 if(documentSnapshot.getString("isUser")!=null){

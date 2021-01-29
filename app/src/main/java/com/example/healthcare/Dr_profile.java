@@ -6,11 +6,9 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,10 +30,10 @@ public class Dr_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dr_profile);
-        name=  findViewById(R.id.tv_name);
-        town=findViewById(R.id.tv_address);
+        name=  findViewById(R.id.d_name);
+        town=findViewById(R.id.d_address);
         phone= findViewById(R.id.phone_num);
-        specialization=findViewById(R.id.spec);
+        specialization=findViewById(R.id.d_spec);
         String namedr=getIntent().getStringExtra("name");
         String towndr=getIntent().getStringExtra("town");
         String phonedr=getIntent().getStringExtra("phone");
@@ -54,7 +52,7 @@ public class Dr_profile extends AppCompatActivity {
             }
         });
 
-        Button booking = findViewById(R.id.clinical_bn);
+        Button booking = findViewById(R.id.show_appointment);
         booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
