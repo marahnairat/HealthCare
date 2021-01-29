@@ -7,19 +7,7 @@
     android:background="#FFFFFF"
     tools:context=".ReservationActivity">
 
-    <Button
-        android:id="@+id/confirm_button2"
-        android:layout_width="159dp"
-        android:layout_height="55dp"
-        android:text="          Confirm             "
-        android:textColor="#FFFFFF"
-        app:backgroundTint="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
+
 
     <Button
         android:id="@+id/btnDate"

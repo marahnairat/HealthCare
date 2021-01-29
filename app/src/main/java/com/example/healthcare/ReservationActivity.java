@@ -26,6 +26,7 @@ import com.google.firebase.auth.*;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.sql.Time;
 import java.util.HashMap;
@@ -54,15 +55,16 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
         String dr_id=getIntent().getStringExtra("dr_id");
         String user_id=fauth.getCurrentUser().getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("Users").document(user_id);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Users")
+                .document(user_id).get().
+                addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
+                    DocumentSnapshot document = (QueryDocumentSnapshot) task.getResult();
                     if (document.exists()) {
-                        Log.d("DocumentSnapshot data: " , String.valueOf(document.get("name")));
-                        user_name= (String) document.get("name");
+                        Log.d("DocumentSnapshot data: " , String.valueOf(document.get("FullName")));
+                        user_name= (String) document.get("FullName");
                     } else {
                         Log.d("No such document"," ");
                     }
