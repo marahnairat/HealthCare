@@ -32,7 +32,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/d_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUser"
@@ -45,10 +45,10 @@
 
 
         <TextView
-            android:id="@+id/tv_address"
+            android:id="@+id/d_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_name"
+            android:layout_below="@+id/d_name"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif"
             android:text="palestine - jenin "
@@ -103,7 +103,7 @@
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/spec"
+                    android:id="@+id/d_spec"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -120,7 +120,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/phone"
+                android:id="@+id/phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -155,7 +155,7 @@
     </RelativeLayout>
 
     <Button
-        android:id='@+id/clinical_bn'
+        android:id='@+id/show_appointment'
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
