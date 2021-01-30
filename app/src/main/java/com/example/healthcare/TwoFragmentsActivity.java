@@ -58,11 +58,6 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two_fragments);
 
-//        Intent mIntent = getIntent();
-//       lat = mIntent.getIntExtra("LATITUDE", 0);
-//       lon = mIntent.getIntExtra("LONGITUDE", 0);
-//        Toast.makeText(TwoFragmentsActivity.this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
-
         LocationRequest locationRequest = LocationRequest.create();
         locationRequest.setInterval(10000);
         locationRequest.setFastestInterval(5000);
@@ -74,21 +69,15 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
             },100);
         }
         getLocation();
-//       final Button button_location = findViewById(R.id.button_location2);
-//        button_location.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                //create method
-//                getLocation();
-//            }
-//        });
+
 
         final Button button = (Button) findViewById(R.id.buttonchange);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//
-//                onButtonClick();
-//            }
-//        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                onButtonClick();
+            }
+        });
 
         final Button but1 = (Button) findViewById(R.id.continueButton);
         but1.setOnClickListener(new View.OnClickListener() {
@@ -115,13 +104,9 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
 
     @Override
     public void onButtonClick() {
-//        TwoFragment textFragment;
-//        textFragment = (TwoFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.two_fragment);
-//        textFragment.changeTextProperties(" ");
-//        result=" ";
-//for(int i=0;i<valuesselected.size();i++)
-//        Log.i("Test", valuesselected.get(i));
+        result=" ";
+for(int i=0;i<valuesselected.size();i++)
+        Log.i("Test", valuesselected.get(i));
 
     }
 
@@ -514,6 +499,8 @@ class DataObject implements Parcelable {
     String phone;
     String dr_id;
     String image;
+    String day;
+    String hour;
 
     public DataObject(int x, int y)
     { this.x = x;
@@ -539,6 +526,13 @@ class DataObject implements Parcelable {
         this.dr_id = dr_id;
         this.image = image;
     }
+    public DataObject( String name, String  day,String hour)
+    {
+        this.name = name;
+        this.city = day;
+        this.phone = hour;
+
+    }
 
     protected DataObject(Parcel in) {
         x = in.readInt();
@@ -549,6 +543,8 @@ class DataObject implements Parcelable {
         phone = in.readString();
         dr_id = in.readString();
         image = in.readString();
+        day = in.readString();
+        hour = in.readString();
     }
 
     @Override
@@ -561,6 +557,8 @@ class DataObject implements Parcelable {
         dest.writeString(phone);
         dest.writeString(dr_id);
         dest.writeString(image);
+        dest.writeString(day);
+        dest.writeString(hour);
     }
 
     @Override
@@ -591,6 +589,12 @@ class DataObject implements Parcelable {
     }
     public double getDistance() {
         return distance;
+    }
+    public String getHour() {
+        return hour;
+    }
+    public String getDay() {
+        return day;
     }
 
     public String toString(){

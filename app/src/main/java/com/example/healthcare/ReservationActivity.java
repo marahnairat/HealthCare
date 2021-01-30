@@ -52,16 +52,16 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
         selectDate = findViewById(R.id.btnDate);
         date = findViewById(R.id.tvSelectedDate);
         FirebaseAuth fauth=FirebaseAuth.getInstance();
-        String dr_id=getIntent().getStringExtra("dr_id");
         String user_id=fauth.getCurrentUser().getUid();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Users")
-                .document(user_id).get().
-                addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+
+        String dr_id=getIntent().getStringExtra("dr_id");
+        DocumentReference data = FirebaseFirestore.getInstance().collection("Users")
+                .document(user_id);
+                data.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
-                    DocumentSnapshot document = (QueryDocumentSnapshot) task.getResult();
+                    DocumentSnapshot document = (DocumentSnapshot) task.getResult();
                     if (document.exists()) {
                         Log.d("DocumentSnapshot data: " , String.valueOf(document.get("FullName")));
                         user_name= (String) document.get("FullName");
@@ -111,7 +111,7 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
                 db.collection("Users").document(dr_id).collection("appointments")
                         .add(appointment);
 
-                Intent i = new Intent(getBaseContext(),ReservationActivity.class);
+                Intent i = new Intent(getBaseContext(),MainActivity.class);
                 startActivity(i);
 
             }
@@ -134,6 +134,7 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
     @Override
     public void onPositiveButtonClicked(String[] list, int position) {
         text_hour.setText("Selected Hour = " + list[position]);
+        time_selected=list[position];
     }
 
     @Override

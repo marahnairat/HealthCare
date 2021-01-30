@@ -29,11 +29,7 @@ public class loginFinal extends AppCompatActivity {
     boolean valid = true;
     FirebaseAuth fauth;
     FirebaseFirestore fstore;
-//    Button registerUser;
-//    EditText username, password;
-//    Button loginButton;
-//    TextView doctor_login;
-//    String user, pass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +94,7 @@ public class loginFinal extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Log.d("TAG", "onSuccess:" + documentSnapshot.getData());
-                if(documentSnapshot.getString("isDoctor")!=null){
+                if(documentSnapshot.getLong("isDoctor")!=null){
                   String doctor_name= documentSnapshot.getString("FullName");
                     String doctor_phone= documentSnapshot.getString("PhoneNumber");
                     Intent intent = new Intent(loginFinal.this, Dr_profile_dr_side.class);

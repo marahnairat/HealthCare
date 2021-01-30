@@ -50,21 +50,6 @@ public class ListViews extends Activity {
                 startActivity(intent);
             }
         });
-//        listView.setOnItemClickListener((parent, view, position, id) -> {
-//            switch(position){
-//                case 0:
-//                    //Toast.makeText(getApplicationContext(), (String)parent.getItemAtPosition(position), Toast.LENGTH_LONG).show();
-//                    Intent i = new Intent(ListViews.this,Dr_profile.class);
-//                    startActivity(i);
-//                    break;
-//                case 1:
-//                    Intent i1 = new Intent(ListViews.this,Dr_profile.class);
-//                    startActivity(i1);
-//                    break;
-//
-//
-//            }
-//        });
 
 
     }

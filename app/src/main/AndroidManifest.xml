@@ -45,6 +45,8 @@
         <activity android:name=".mycurrentlocation" />
         <activity android:name=".Dr_profile_dr_side" />
         <activity android:name=".ReminderActivity" />
+        <activity android:name=".AppointmentsListViews" />
+
 
         <receiver android:name=".AlarmReceiver" />
         <activity android:name=".TwoFragmentsActivity" />

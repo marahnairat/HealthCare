@@ -85,17 +85,17 @@ android:paddingBottom="20dp"
 
             />
 
-        <Button
-            android:id="@+id/buttonchange"
-            android:layout_width="78dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
-            android:background="@color/blue"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="ok"
+<!--        <Button-->
+<!--            android:id="@+id/buttonchange"-->
+<!--            android:layout_width="78dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:background="@color/blue"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textStyle="bold"-->
+<!--            android:text="ok"-->
 
-            />
+<!--            />-->
 
 </LinearLayout>

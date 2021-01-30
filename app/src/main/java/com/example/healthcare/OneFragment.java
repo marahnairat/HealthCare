@@ -45,10 +45,6 @@ public class OneFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.one_fragment, container, false);
-//        ch1=(CheckBox) view.findViewById(R.id.checkbox1);
-//        ch2=(CheckBox) view.findViewById(R.id.checkbox2);
-//        ch3=(CheckBox) view.findViewById(R.id.checkbox3);
-//        ch4=(CheckBox) view.findViewById(R.id.checkbox4);
 
         final Button button = (Button) view.findViewById(R.id.buttonchange);
         button.setOnClickListener(new View.OnClickListener() {
@@ -67,19 +63,6 @@ public class OneFragment extends Fragment {
 
     }
 
-//    public void changeTextCheckbox(View view,String[] s) {
-//        for (int i=0;i<s.length;i++) {
-//
-//            ch1=(CheckBox) view.findViewById(R.id.checkbox1);
-//            checkBox.setText(s[i]);
-//        }
-////        ch1.setText(s[0]);
-////        ch2.setText(s[1]);
-////        ch3.setText(s[2]);
-////        ch4.setText(s[3]);
-//
-//
-//    }
 
 
 }

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <TextView
         android:id="@+id/textView13"
@@ -17,7 +18,9 @@
         app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.022"
+        android:textSize="22dp"
+        />
 
     <TextView
         android:id="@+id/textView15"
@@ -30,7 +33,10 @@
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.067"
+        android:textSize="22dp"
+
+        />
 
     <TextView
         android:id="@+id/textView18"
@@ -43,7 +49,10 @@
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.137"
+        android:textSize="22dp"
+
+        />
 
     <TextView
         android:id="@+id/Name_text"
@@ -55,7 +64,10 @@
         app:layout_constraintHorizontal_bias="0.721"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintVertical_bias="0.021"
+        android:textSize="22dp"
+
+        />
 
     <TextView
         android:id="@+id/day_text"
@@ -79,6 +91,9 @@
         app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.066"
+        android:textSize="22dp"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

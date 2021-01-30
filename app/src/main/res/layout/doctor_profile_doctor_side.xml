@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Dr_profile">
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Dr_profile">
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/blue">
 
+        <Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/blue"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:title="@string/app_name"
+            android:titleMarginStart="40dp"
+            android:logo="@drawable/ic_menu"
+
+            >
+
+
+        </Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <Button
         android:id='@+id/show_appointment'
@@ -34,28 +55,28 @@
             android:layout_height="wrap_content"
             android:paddingBottom="20dp">
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_settings" />
+<!--            <ImageView-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginRight="15dp"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:scaleType="centerInside"-->
+<!--                android:src="@drawable/ic_settings" />-->
 
             <RelativeLayout
                 android:id="@+id/imgUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="70dp"
                 android:background="@drawable/circle_border">
 
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:layout_margin="9dp"
+                    android:layout_margin="50dp"
                     android:adjustViewBounds="true"
                     android:background="@drawable/edit_bg"
                     android:padding="3dp"
@@ -99,7 +120,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
@@ -110,7 +130,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:textAlignment="center"
+                    >
 
                     <TextView
                         android:id="@+id/d_phone"
@@ -118,7 +140,8 @@
                         android:layout_height="wrap_content"
                         android:text="Phone"
                         android:textColor="@color/blue"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:textAlignment="center"/>
 
                     <TextView
                         android:id="@+id/phone_num"
@@ -126,7 +149,9 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
                         android:textColor="#000000"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        />
 
                     <View
                         android:layout_width="match_parent"
