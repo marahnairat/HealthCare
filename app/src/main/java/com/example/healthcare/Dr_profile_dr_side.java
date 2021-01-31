@@ -22,6 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Dr_profile_dr_side extends AppCompatActivity {
     TextView d_name;
@@ -39,11 +40,8 @@ public class Dr_profile_dr_side extends AppCompatActivity {
         setActionBar(toolbar);
         d_name=  findViewById(R.id.d_name);
         d_city=findViewById(R.id.d_address);
-        d_phone= findViewById(R.id.phone_num);
         d_specialization=findViewById(R.id.d_spec);
-        Intent intent = getIntent();
-        String phone= intent.getStringExtra("doctor_phone");
-        d_phone.setText(phone);
+        Intent intent = getIntent();;
         String name= intent.getStringExtra("doctor_name");
         d_name.setText(name);
         Button show_appointment = findViewById(R.id.show_appointment);
@@ -53,36 +51,36 @@ public class Dr_profile_dr_side extends AppCompatActivity {
                 ArrayList<DataObject> appointments=new ArrayList<DataObject>();
                 FirebaseAuth fauth=FirebaseAuth.getInstance();
                 String doctor_id=fauth.getCurrentUser().getUid();
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                 CollectionReference oo=db.collection("Users").document(doctor_id).collection("appointments");
-                        oo.get()
+                FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+                db1.collection("Users").document(doctor_id).collection("appointments")
+                        .get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
                             @Override
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
                                 if (task.isSuccessful()) {
 
-                                    for (QueryDocumentSnapshot doc : task.getResult()) {
+                                    for (QueryDocumentSnapshot document : task.getResult
+                                            ()) {
+                                        appointments.add(new DataObject(Objects.requireNonNull(document.get("name")).toString(),
+                                                Objects.requireNonNull(document.get("date")).toString(),
+                                                Objects.requireNonNull(document.get("time")).toString(),
+                                                document.getId()));
 
-                                        appointments.add(new DataObject(doc.get("name").toString(),
-                                                doc.get("date").toString(),doc.get("time").toString()));
 
 
                                     }
-
-
                                 } else {
-                                    Log.w("Error ","you haent appointments");
+                                    Log.w("all documents", "Error getting documents.", task.getException());
                                 }
+
+                                Intent i = new Intent(getBaseContext(),AppointmentsListViews.class);
+                                i.putExtra("appointments",appointments);
+                                startActivity(i);
+
+
                             }
                         });
-
-
-                 appointments.add(new DataObject("marahnair",
-                         "wed 15/2","9:00"));
-                Intent i = new Intent(getBaseContext(),AppointmentsListViews.class);
-                i.putExtra("appointments",appointments);
-                startActivity(i);
 
 
             }

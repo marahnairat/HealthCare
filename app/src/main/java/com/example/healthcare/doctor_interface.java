@@ -28,7 +28,6 @@ public class doctor_interface   extends AppCompatActivity {
         final doctor_appointment_fragment myFragment = new doctor_appointment_fragment();
         txt1 = (TextView) findViewById(R.id.textView);
         txt2 = (TextView) findViewById(R.id.name_text);
-        txt3 = (TextView) findViewById(R.id.address);
         picker = (DatePicker) findViewById(R.id.datePicker1);
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {

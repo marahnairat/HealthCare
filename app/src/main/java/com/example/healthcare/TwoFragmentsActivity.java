@@ -501,6 +501,7 @@ class DataObject implements Parcelable {
     String image;
     String day;
     String hour;
+    String app_id;
 
     public DataObject(int x, int y)
     { this.x = x;
@@ -526,11 +527,12 @@ class DataObject implements Parcelable {
         this.dr_id = dr_id;
         this.image = image;
     }
-    public DataObject( String name, String  day,String hour)
+    public DataObject( String name, String  day,String hour,String app_id)
     {
         this.name = name;
-        this.city = day;
-        this.phone = hour;
+        this.day = day;
+        this.hour = hour;
+        this.app_id = app_id;
 
     }
 
@@ -545,6 +547,7 @@ class DataObject implements Parcelable {
         image = in.readString();
         day = in.readString();
         hour = in.readString();
+        app_id = in.readString();
     }
 
     @Override
@@ -559,6 +562,7 @@ class DataObject implements Parcelable {
         dest.writeString(image);
         dest.writeString(day);
         dest.writeString(hour);
+        dest.writeString(app_id);
     }
 
     @Override
@@ -595,6 +599,9 @@ class DataObject implements Parcelable {
     }
     public String getDay() {
         return day;
+    }
+    public String getApp_id() {
+        return app_id;
     }
 
     public String toString(){
