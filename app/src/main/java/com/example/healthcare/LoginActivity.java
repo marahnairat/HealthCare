@@ -1,17 +1,15 @@
 package com.example.healthcare;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -20,6 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.regex.Pattern;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,9 +37,9 @@ public class LoginActivity extends AppCompatActivity {
         fauth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
 
-        email = findViewById(R.id.loginEmail);
-        password = findViewById(R.id.loginPassword);
-        loginBtn = findViewById(R.id.loginBtn);
+        email = (EditText)findViewById(R.id.loginEmail);
+        password =(EditText) findViewById(R.id.loginPassword);
+        loginBtn =  (Button)findViewById(R.id.loginBtn);
         gotoRegister = findViewById(R.id.gotoRegister);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 checkField(email);
                 checkField(password);
                 if (valid) {
+
                     fauth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
@@ -108,6 +110,20 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+    private boolean isValidPhoneNumber(String phone) {
+        boolean check=false;
+        if(Pattern.matches("^[0-9]*$", phone)) {
+            if(phone.length() < 10 || phone.length() > 11) {
+                // if(phone.length() != 10) {
+                check = false;
+            } else {
+                check = true;
+            }
+        } else {
+            check=false;
+        }
+        return check;
     }
 
 }

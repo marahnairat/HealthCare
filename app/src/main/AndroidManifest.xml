@@ -26,15 +26,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".registerFinal"></activity>
-        <activity android:name=".loginFinal">
+        <activity android:name=".login2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".register" />
+        <activity android:name=".registerFinal" />
+        <activity android:name=".loginFinal">
+
+        </activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".CheckActivity" />
         <activity android:name=".ListViews" />
         <activity android:name=".Dr_profile" />
@@ -47,8 +51,8 @@
         <activity android:name=".ReminderActivity" />
         <activity android:name=".AppointmentsListViews" />
 
-
         <receiver android:name=".AlarmReceiver" />
+
         <activity android:name=".TwoFragmentsActivity" />
     </application>
 
