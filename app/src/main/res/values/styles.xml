@@ -7,7 +7,11 @@
         <item name="colorPrimaryDark">@color/blue</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textColorPrimary">#E21D2F8E</item>
+        <item name="android:colorAccent">#BA7783C8</item>
+    </style>
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="android:windowNoTitle">true</item>

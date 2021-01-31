@@ -35,6 +35,7 @@
            </intent-filter>
     </activity>
         <activity android:name=".CheckActivity" />
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".ListViews" />
         <activity android:name=".Dr_profile" />
         <activity android:name=".user_interface" />
