@@ -5,10 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -28,7 +25,7 @@ public class AppointmentsAdapter  extends ArrayAdapter<Appointment> {
 
         Appointment appointment= (Appointment) getItem(position);
 
-        TextView docName = (TextView) convertView.findViewById(R.id.Name_text);
+        TextView docName = (TextView) convertView.findViewById(R.id.name_text);
         TextView docDay = (TextView) convertView.findViewById(R.id.day_text);
         TextView docHour = (TextView) convertView.findViewById(R.id.hour_text);
 
