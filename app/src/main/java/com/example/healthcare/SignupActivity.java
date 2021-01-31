@@ -1,7 +1,5 @@
 package com.example.healthcare;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -36,11 +37,11 @@ public class SignupActivity extends AppCompatActivity {
         fauth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
 
-        fullName = findViewById(R.id.registerName);
-        email = findViewById(R.id.registerEmail);
-        password = findViewById(R.id.registerPassword);
-        phone = findViewById(R.id.registerPhone);
-        registerBtn = findViewById(R.id.registerBtn);
+        fullName = (EditText)findViewById(R.id.registerName);
+        email = (EditText)findViewById(R.id.registerEmail);
+        password =(EditText) findViewById(R.id.registerPassword);
+        phone = (EditText)findViewById(R.id.registerPhone);
+        registerBtn = (Button)findViewById(R.id.registerBtn);
         goToLogin = findViewById(R.id.gotoLogin);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
