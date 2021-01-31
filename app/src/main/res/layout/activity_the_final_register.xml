@@ -15,8 +15,8 @@
             android:paddingLeft="48dp"
             android:paddingRight="48dp"
             android:background="#a4000000"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/app_logo"
                 android:layout_width="60dp"
@@ -38,56 +38,58 @@
                 android:textColor="@color/colorText"
                 android:textSize="24sp" />
 
+            <EditText
+                android:id="@+id/registerName"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Full Name"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorText"
+                android:theme="@style/Custom.EditText"/>
 
-                <EditText
-                    android:id="@+id/registerName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/colorText"
-                    android:theme="@style/Custom.EditText" />
+            <EditText
+                android:id="@+id/registerEmail"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorText"
+                android:theme="@style/Custom.EditText"/>
 
+            <EditText
+                android:id="@+id/registerPassword"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/colorText"
+                android:theme="@style/Custom.EditText"/>
 
+            <EditText
+                android:id="@+id/registerPhone"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="phone"
 
-
-                <EditText
-                    android:id="@+id/registerEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-
-
-                    android:textColor="@color/colorText"
-                    android:theme="@style/Custom.EditText" />
-
-
-
-
-
-                <EditText
-                    android:id="@+id/registerPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/colorText"
-                    android:theme="@style/Custom.EditText" />
-
-
-
-
-
-                <EditText
-                    android:id="@+id/registerPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Phone"
-                    android:inputType="phone"
-                    android:textColor="@color/colorText"
-                    android:theme="@style/Custom.EditText" />
-
-
+                android:textColor="@color/colorText"
+                android:theme="@style/Custom.EditText"/>
 
             <Button
                 android:id="@+id/registerBtn"
@@ -132,5 +134,4 @@
         </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </merge>

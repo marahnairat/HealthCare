@@ -101,7 +101,7 @@ public class Dr_profile_dr_side extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             // user is now signed out
-                            startActivity(new Intent(Dr_profile_dr_side.this, loginFinal.class));
+                            startActivity(new Intent(Dr_profile_dr_side.this, the_final_login.class));
                             finish();
                         }
                     });

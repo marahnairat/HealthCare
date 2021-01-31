@@ -65,7 +65,7 @@ ViewPager viewPager;
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             // user is now signed out
-                            startActivity(new Intent(MainActivity.this, login2.class));
+                            startActivity(new Intent(MainActivity.this, the_final_login.class));
                             finish();
                         }
                     });

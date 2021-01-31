@@ -26,24 +26,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".login2">
+        <activity android:name=".the_final_register"></activity>
+        <activity android:name=".the_final_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".register" />
-        <activity android:name=".registerFinal" />
-        <activity android:name=".loginFinal">
-
-        </activity>
-        <activity android:name=".LoginActivity" />
+           </intent-filter>
+    </activity>
         <activity android:name=".CheckActivity" />
         <activity android:name=".ListViews" />
         <activity android:name=".Dr_profile" />
         <activity android:name=".user_interface" />
-        <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ReservationActivity" />
         <activity android:name=".mycurrentlocation" />

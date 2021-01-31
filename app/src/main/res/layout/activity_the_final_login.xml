@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:facebook="http://schemas.android.com/apk/res-auto">
-
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/activity_login"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg1" >
+        android:id="@+id/layout"
+        android:background="@drawable/bg1"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="48dp"
-            android:background="#a4000000"
             android:paddingRight="48dp"
-            android:orientation="vertical" >
+            android:background="#a4000000"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/app_logo"
@@ -32,51 +31,39 @@
                 android:id="@+id/titleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="@string/login_title"
+                android:gravity="center_horizontal"
+                android:text="@string/registration_title"
                 android:textColor="@color/colorText"
                 android:textSize="24sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/loginEma"
-                android:layout_width="match_parent"
+
+            <EditText
+                android:id="@+id/loginEmail"
+                android:layout_width="282dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:textColorHint="@color/colorText">
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorText"
+                android:theme="@style/Custom.EditText" />
 
-                <EditText
-                    android:id="@+id/loginEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:textColor="@color/colorText"
-                    android:theme="@style/Custom.EditText" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/password_hint"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/loginPassword"
+                android:layout_width="282dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:textColorHint="@color/colorText">
-
-                <EditText
-                    android:id="@+id/loginPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:hint="@string/login_hint_password"
-
-                    android:inputType="textPassword"
-                    android:textColor="@color/colorText"
-                    android:theme="@style/Custom.EditText" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/colorText"
+                android:theme="@style/Custom.EditText" />
 
             <Button
                 android:id="@+id/loginBtn"
