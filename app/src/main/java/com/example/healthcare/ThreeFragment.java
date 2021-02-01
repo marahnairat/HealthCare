@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class ThreeFragment extends Fragment {
+boolean c1=true,c2=true,c3=true,c4=true,c5=true,c6=true,c7=true;
 
     ThreeFragmentListener activityCallback;
     //Listener for onButtonClick UI
@@ -52,7 +53,8 @@ public class ThreeFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                clickedButton(v,"Chest and back");
+                 if (c1) {c1=false;
+                clickedButton(v,"Chest and back");}
             }
         });
 
@@ -60,8 +62,8 @@ public class ThreeFragment extends Fragment {
         final Button button2 = (Button) view.findViewById(R.id.headandneck);
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                clickedButton(v,"Head and neck");
+                if (c2) {c2=false;
+                clickedButton(v,"Head and neck");}
             }
         });
 
@@ -69,8 +71,8 @@ public class ThreeFragment extends Fragment {
         final Button button3 = (Button) view.findViewById(R.id.abdomenandpelvis);
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                clickedButton(v,"Abdomen and pelvis");
+                if (c3) {c3=false;
+                clickedButton(v,"Abdomen and pelvis");}
             }
         });
 
@@ -78,18 +80,18 @@ public class ThreeFragment extends Fragment {
         final Button button4 = (Button) view.findViewById(R.id.noseearthroat);
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                if (c4) {c4=false;
                 clickedButton(v,"nose ear throat ");
-            }
+            }}
         });
 
 
         final Button button5 = (Button) view.findViewById(R.id.skin);
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                if (c5) {c5=false;
                 clickedButton(v,"skin");
-            }
+            }}
         });
 
 
@@ -97,9 +99,9 @@ public class ThreeFragment extends Fragment {
         final Button button6 = (Button) view.findViewById(R.id.bonesandjoints);
         button6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                if (c6) {c6=false;
                 clickedButton(v,"Bones and joints");
-            }
+            }}
         });
 
 
@@ -107,9 +109,9 @@ public class ThreeFragment extends Fragment {
         final Button button7 = (Button) view.findViewById(R.id.elsee);
         button7.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                if (c7) {c7=false;
                 clickedButton(v,"Else ");
-            }
+            }}
         });
 
 
