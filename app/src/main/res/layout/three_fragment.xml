@@ -1,47 +1,30 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="450dp"
-    android:layout_marginTop="70dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:textAlignment="center"
     android:background="@color/colorWhite"
 
     >
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:text="Determine which part of the body you are experiencing pain "
-            android:fontFamily="sans-serif-light"
-            android:layout_marginTop="5dp"
-            android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:layout_marginStart="30dp"
-            />
 
 <Button
             android:id="@+id/chestandback"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Chest and Back"
-            android:layout_marginLeft="30dp"
             android:background="@color/blue"
             android:textColor="@color/white"
             android:textStyle="bold"
-    android:layout_marginTop="10dp"
 
     />
 
         <Button
             android:id="@+id/headandneck"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Head and Neck"
-            android:layout_marginLeft="30dp"
             android:background="@color/blue"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -51,10 +34,9 @@
 
         <Button
             android:id="@+id/abdomenandpelvis"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Abdomen and Pelvis"
-            android:layout_marginLeft="30dp"
             android:background="@color/blue"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -64,11 +46,10 @@
 
         <Button
             android:id="@+id/noseearthroat"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:text="Nose ear throat"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="5dp"
             android:background="@color/blue"
             android:textColor="@color/white"
@@ -78,10 +59,9 @@
 
         <Button
             android:id="@+id/skin"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Skin"
-            android:layout_marginLeft="30dp"
             android:background="@color/blue"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -91,10 +71,9 @@
 
         <Button
             android:id="@+id/bonesandjoints"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Bones and joints"
-            android:layout_marginLeft="30dp"
             android:background="@color/blue"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -104,10 +83,9 @@
 
         <Button
             android:id="@+id/elsee"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Else"
-            android:layout_marginLeft="30dp"
             android:background="@color/blue"
             android:textColor="@color/white"
             android:textStyle="bold"

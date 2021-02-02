@@ -74,8 +74,6 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
             }
         });
         FragmentManager fragmentManager = getSupportFragmentManager();
-        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        final user_appointment_fragment myFragment = new user_appointment_fragment();
         selectDate.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
@@ -133,7 +131,7 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
 
     @Override
     public void onPositiveButtonClicked(String[] list, int position) {
-        text_hour.setText("Selected Hour = " + list[position]);
+        text_hour.setText( list[position]);
         time_selected=list[position];
     }
 

@@ -34,14 +34,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
            </intent-filter>
     </activity>
-        <activity android:name=".CheckActivity" />
-        <activity android:name=".LoginActivity"></activity>
+
         <activity android:name=".ListViews" />
         <activity android:name=".Dr_profile" />
-        <activity android:name=".user_interface" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ReservationActivity" />
-        <activity android:name=".mycurrentlocation" />
         <activity android:name=".Dr_profile_dr_side" />
         <activity android:name=".ReminderActivity" />
         <activity android:name=".AppointmentsListViews" />

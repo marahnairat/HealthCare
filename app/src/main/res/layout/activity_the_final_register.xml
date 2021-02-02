@@ -22,8 +22,8 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="60dp"
 
                 android:src="@drawable/logo" />
 
@@ -35,59 +35,60 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center_horizontal"
                 android:text="@string/registration_title"
-                android:textColor="@color/colorText"
+                android:textColor="@color/white"
                 android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/registerName"
-                android:layout_width="275dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="Full Name"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorText"
-                android:theme="@style/Custom.EditText"/>
+                android:textColor="@color/white"
+                android:theme="@style/Custom.EditText"
+                android:paddingStart="15dp"
+
+                />
 
             <EditText
                 android:id="@+id/registerEmail"
-                android:layout_width="275dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="Email Address"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/colorText"
-                android:theme="@style/Custom.EditText"/>
+                android:textColor="@color/white"
+                android:theme="@style/Custom.EditText"
+                android:paddingStart="15dp"
+
+                />
 
             <EditText
                 android:id="@+id/registerPassword"
-                android:layout_width="277dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:textColor="@color/colorText"
-                android:theme="@style/Custom.EditText"/>
+                android:textColor="@color/white"
+                android:theme="@style/Custom.EditText"
+                android:paddingStart="15dp"
+
+                />
 
             <EditText
                 android:id="@+id/registerPhone"
-                android:layout_width="277dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="Phone Number"
                 android:inputType="phone"
-
+                android:paddingStart="15dp"
                 android:textColor="@color/colorText"
                 android:theme="@style/Custom.EditText"/>
 

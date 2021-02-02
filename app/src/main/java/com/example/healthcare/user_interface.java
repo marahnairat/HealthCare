@@ -21,9 +21,6 @@ public class user_interface extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_interface);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        final user_appointment_fragment myFragment = new user_appointment_fragment();
         Image1=(ImageView)findViewById(R.id.imageView4);
         txt1 = (TextView) findViewById(R.id.textView);
         txt2 = (TextView) findViewById(R.id.textView2);
@@ -34,12 +31,7 @@ public class user_interface extends FragmentActivity {
             public void onClick(View v) {
                 loadFragment(new user_appointment_fragment());
 
-         /*     Fragment fragmentObject=new Myfragment();
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.frame_layout, fragmentObject);
-                ft.commit();
-
-*/}}); }
+            }}); }
 
 
     private void loadFragment(Fragment fragment) {

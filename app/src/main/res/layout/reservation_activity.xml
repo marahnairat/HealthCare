@@ -39,9 +39,11 @@
 
     <Button
         android:id="@+id/button_confirm"
-        android:layout_width="159dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Confirm"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:textColor="#FFFFFF"
         app:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,16 +51,17 @@
         app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.894" />
+        app:layout_constraintVertical_bias="0.806" />
 
     <TextView
         android:id="@+id/tvSelectedDate"
         style="@style/Widget.AppCompat.SeekBar"
-        android:layout_width="289dp"
-        android:layout_height="65dp"
-        android:textSize="18sp"
+        android:layout_width="310dp"
+        android:layout_height="37dp"
+        android:textAlignment="center"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +73,7 @@
         android:layout_height="149dp"
         android:layout_marginEnd="4dp"
         android:background="@color/blue"
-        android:textSize="18sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -79,39 +82,40 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="147dp"
-        android:layout_height="129dp"
+        android:layout_width="109dp"
+        android:layout_height="102dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107"
+        app:layout_constraintVertical_bias="0.106"
         app:srcCompat="@drawable/r4" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="228dp"
         android:layout_height="65dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="96dp"
         android:text="Reservation time..."
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintHorizontal_bias="0.812"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         style="@style/Widget.AppCompat.SeekBar"
-        android:layout_width="317dp"
-        android:layout_height="54dp"
+        android:layout_width="312dp"
+        android:layout_height="32dp"
+        android:textAlignment="center"
         android:textColor="#0C0C0C"
-        android:textSize="18sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.579" />

@@ -41,7 +41,7 @@ import java.util.Map;
 
 
 public class TwoFragmentsActivity extends FragmentActivity implements LocationListener ,
-        OneFragment.OneFragmentListener , ThreeFragment.ThreeFragmentListener {
+      ThreeFragment.ThreeFragmentListener {
    // List<String> valuesselected = Arrays.asList();
     String specialization_for_listview="";
     ArrayList<String>  valuesselected=new ArrayList<String>();
@@ -71,13 +71,13 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
         getLocation();
 
 
-        final Button button = (Button) findViewById(R.id.buttonchange);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                onButtonClick();
-            }
-        });
+//        final Button button = (Button) findViewById(R.id.buttonchange);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//
+//                onButtonClick();
+//            }
+//        });
 
         final Button but1 = (Button) findViewById(R.id.continueButton);
         but1.setOnClickListener(new View.OnClickListener() {
@@ -95,23 +95,23 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
 
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.two_fragments, menu);
-//        getMenuInflater().inflate(R.menu.one_fragment, menu);
         return true;
     }
 
 
 
-
-    @Override
-    public void onButtonClick() {
-        result=" ";
-for(int i=0;i<valuesselected.size();i++)
-        Log.i("Test", valuesselected.get(i));
-
-    }
+//
+//    @Override
+//    public void onButtonClick() {
+//for(int i=0;i<valuesselected.size();i++)
+//        Log.i("Test", valuesselected.get(i));
+//
+//    }
 
 
     public void continueCheck(View view) {
+        result=" ";
+
         int data[] = new int[valuesselected.size()];
         for (int m=0;m<valuesselected.size();m++) {
             data[m]= (int) (Double.parseDouble(valuesselected.get(m))*10);

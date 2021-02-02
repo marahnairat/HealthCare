@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HealthCare</string>
+    <string name="app_name">Care Clinic</string>
     <string name="login_title">Login Now</string>
     <string name="login_hint_email">Email</string>
     <string name="login_hint_password">Password</string>
