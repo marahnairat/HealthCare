@@ -66,8 +66,6 @@ public class ReminderActivity  extends AppCompatActivity implements View.OnClick
 
                 // Set Alarm
 
-
-
                 alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, pendingIntent);
                 Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
 
