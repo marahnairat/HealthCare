@@ -62,7 +62,8 @@ public class ReminderActivity  extends AppCompatActivity implements View.OnClick
                 startTime.set(Calendar.MINUTE, minute);
                 startTime.set(Calendar.SECOND, 0);
                 long alarmStartTime = startTime.getTimeInMillis();
-
+                Intent i = new Intent(this,MainActivity.class);
+                startActivity(i);
                 // Set Alarm
                 alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, pendingIntent);
                 Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
