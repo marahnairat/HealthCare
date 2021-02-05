@@ -7,12 +7,13 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
 public class AlarmReceiver extends BroadcastReceiver {
-
+    MediaPlayer mp;
     private static final String CHANNEL_ID = "CHANNEL_SAMPLE";
 
     @Override
@@ -50,5 +51,9 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         // Notify
         notificationManager.notify(notificationId, builder.build());
+
+            mp= MediaPlayer.create(context, R.raw.alrm   );
+            mp.start();
+
     }
 }

@@ -8,6 +8,17 @@
     tools:context=".ReservationActivity">
 
 
+    <ImageView
+        android:id="@+id/confirmimage"
+        android:layout_width="113dp"
+        android:layout_height="110dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922"
+        app:srcCompat="@drawable/t3333" />
 
     <Button
         android:id="@+id/btnDate"
@@ -37,22 +48,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.659" />
 
-    <Button
-        android:id="@+id/button_confirm"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="Confirm"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:textColor="#FFFFFF"
-        app:backgroundTint="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.806" />
-
     <TextView
         android:id="@+id/tvSelectedDate"
         style="@style/Widget.AppCompat.SeekBar"
@@ -69,41 +64,43 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="409dp"
-        android:layout_height="149dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="493dp"
+        android:layout_height="158dp"
         android:background="@color/blue"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:textLocale="10" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="109dp"
-        android:layout_height="102dp"
+        android:layout_width="148dp"
+        android:layout_height="132dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106"
+        app:layout_constraintVertical_bias="0.089"
         app:srcCompat="@drawable/r4" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="228dp"
         android:layout_height="65dp"
-        android:layout_marginTop="96dp"
         android:text="Reservation time..."
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.812"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.108" />
 
     <TextView
         android:id="@+id/textView5"

@@ -45,8 +45,9 @@ public class ReminderActivity  extends AppCompatActivity implements View.OnClick
 
         // PendingIntent
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                ReminderActivity.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT
+                ReminderActivity.this,234324243 , intent, PendingIntent.FLAG_CANCEL_CURRENT
         );
+
 
         // AlarmManager
         AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
@@ -65,8 +66,12 @@ public class ReminderActivity  extends AppCompatActivity implements View.OnClick
                 Intent i = new Intent(this,MainActivity.class);
                 startActivity(i);
                 // Set Alarm
+
                 alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, pendingIntent);
                 Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
+
+
+
                 break;
 
             case R.id.cancelBtn:

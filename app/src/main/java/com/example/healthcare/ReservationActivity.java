@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -95,8 +96,8 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
 
             }
         });
-        Button button_confirm = (Button) findViewById(R.id.button_confirm);
-        button_confirm.setOnClickListener(new View.OnClickListener() {
+        ImageView confirm= (ImageView)findViewById(R.id.confirmimage);
+      confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

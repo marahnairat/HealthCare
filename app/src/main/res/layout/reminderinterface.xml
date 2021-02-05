@@ -18,6 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="remind me"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textCursorDrawable="@color/colorWhite"
             app:backgroundTint="@color/blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="   cancel   "
+            android:textColor="#FBFBFB"
+            android:textColorLink="#FFFFFF"
+            android:textCursorDrawable="@color/colorWhite"
             app:backgroundTint="@color/blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,21 +51,21 @@
             android:layout_height="56dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.723"
+            app:layout_constraintHorizontal_bias="0.894"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.193" />
+            app:layout_constraintVertical_bias="0.202" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="93dp"
-            android:layout_height="83dp"
+            android:layout_width="104dp"
+            android:layout_height="101dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.056"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.141"
+            app:layout_constraintVertical_bias="0.068"
             app:srcCompat="@drawable/p2" />
 
         <TextView
@@ -72,17 +78,17 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.654"
+            app:layout_constraintHorizontal_bias="0.65"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.166" />
+            app:layout_constraintVertical_bias="0.144" />
 
         <TimePicker
             android:id="@+id/timePicker"
             android:layout_width="310dp"
             android:layout_height="360dp"
-            android:headerBackground="@color/gradStart"
-            android:numbersSelectorColor="@color/blue"
+            android:headerBackground="@color/blue"
+            android:numbersSelectorColor="@color/fui_bgPhone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

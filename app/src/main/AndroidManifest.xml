@@ -44,6 +44,8 @@
         <activity android:name=".AppointmentsListViews" />
 
         <receiver android:name=".AlarmReceiver" />
+        <receiver android:name="MyBroadcastReceiver" >
+        </receiver>
 
         <activity android:name=".TwoFragmentsActivity" />
     </application>
