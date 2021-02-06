@@ -23,13 +23,13 @@ import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
 
-import com.gautam.healthcare.R;
-import com.gautam.healthcare.alarm.ReminderActivity;
-import com.gautam.healthcare.alarm.ReminderFragment;
-import com.gautam.healthcare.data.source.MedicineAlarm;
-import com.gautam.healthcare.data.source.Pills;
-import com.gautam.healthcare.views.DayViewCheckBox;
-import com.gautam.healthcare.views.RobotoBoldTextView;
+import com.example.healthcare.R;
+import com.example.healthcare.alarm.ReminderActivity;
+import com.example.healthcare.alarm.ReminderFragment;
+import com.example.healthcare.source.MedicineAlarm;
+import com.example.healthcare.source.Pills;
+import com.example.healthcare.views.DayViewCheckBox;
+import com.example.healthcare.views.RobotoBoldTextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;

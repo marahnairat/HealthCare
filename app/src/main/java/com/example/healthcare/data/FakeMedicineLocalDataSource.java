@@ -3,9 +3,9 @@ package com.example.healthcare.data;
 import androidx.annotation.VisibleForTesting;
 
 import com.example.healthcare.source.History;
-import com.gautam.healthcare.data.source.MedicineAlarm;
-import com.gautam.healthcare.data.source.MedicineDataSource;
-import com.gautam.healthcare.data.source.Pills;
+import com.example.healthcare.source.MedicineAlarm;
+import com.example.healthcare.source.MedicineDataSource;
+import com.example.healthcare.source.Pills;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

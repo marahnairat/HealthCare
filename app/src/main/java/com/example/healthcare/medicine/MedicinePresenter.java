@@ -9,12 +9,12 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.gautam.healthcare.addmedicine.AddMedicineActivity;
-import com.gautam.healthcare.alarm.ReminderActivity;
-import com.gautam.healthcare.alarm.ReminderFragment;
-import com.gautam.healthcare.data.source.MedicineAlarm;
-import com.gautam.healthcare.data.source.MedicineDataSource;
-import com.gautam.healthcare.data.source.MedicineRepository;
+import com.example.healthcare.addmedicine.AddMedicineActivity;
+import com.example.healthcare.alarm.ReminderActivity;
+import com.example.healthcare.alarm.ReminderFragment;
+import com.example.healthcare.source.MedicineAlarm;
+import com.example.healthcare.source.MedicineDataSource;
+import com.example.healthcare.source.MedicineRepository;
 
 import java.util.Collections;
 import java.util.List;

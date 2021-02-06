@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.core.content.ContextCompat;
 
-import com.gautam.healthcare.R;
+import com.example.healthcare.R;
 
 /**
  * Created by gautam on 13/07/17.

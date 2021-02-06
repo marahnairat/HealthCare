@@ -15,12 +15,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.gautam.healthcare.R;
-import com.gautam.healthcare.data.source.History;
-import com.gautam.healthcare.data.source.MedicineAlarm;
-import com.gautam.healthcare.medicine.MedicineActivity;
-import com.gautam.healthcare.views.RobotoBoldTextView;
-import com.gautam.healthcare.views.RobotoRegularTextView;
+import com.example.healthcare.R;
+import com.example.healthcare.source.History;
+import com.example.healthcare.source.MedicineAlarm;
+import com.example.healthcare.medicine.MedicineActivity;
+import com.example.healthcare.views.RobotoBoldTextView;
+import com.example.healthcare.views.RobotoRegularTextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

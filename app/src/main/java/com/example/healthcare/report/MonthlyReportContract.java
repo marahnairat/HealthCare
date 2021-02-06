@@ -1,8 +1,8 @@
 package com.example.healthcare.report;
 
-import com.gautam.healthcare.BasePresenter;
-import com.gautam.healthcare.BaseView;
-import com.gautam.healthcare.data.source.History;
+import com.example.healthcare.BasePresenter;
+import com.example.healthcare.BaseView;
+import com.example.healthcare.source.History;
 
 import java.util.List;
 

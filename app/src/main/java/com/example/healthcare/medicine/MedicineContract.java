@@ -2,9 +2,9 @@ package com.example.healthcare.medicine;
 
 import android.content.Context;
 
-import com.gautam.healthcare.BasePresenter;
-import com.gautam.healthcare.BaseView;
-import com.gautam.healthcare.data.source.MedicineAlarm;
+import com.example.healthcare.BasePresenter;
+import com.example.healthcare.BaseView;
+import com.example.healthcare.source.MedicineAlarm;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface MedicineContract {
 
-    interface View extends com.gautam.healthcare.BaseView<Presenter> {
+    interface View extends com.example.healthcare.BaseView<Presenter> {
 
         void showLoadingIndicator(boolean active);
 
@@ -37,7 +37,7 @@ public interface MedicineContract {
 
     }
 
-    interface Presenter extends com.gautam.healthcare.BasePresenter {
+    interface Presenter extends com.example.healthcare.BasePresenter {
 
         void onStart(int day);
 

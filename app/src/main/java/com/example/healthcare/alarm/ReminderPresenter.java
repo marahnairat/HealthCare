@@ -2,10 +2,10 @@ package com.example.healthcare.alarm;
 
 import androidx.annotation.NonNull;
 
-import com.gautam.healthcare.data.source.History;
-import com.gautam.healthcare.data.source.MedicineAlarm;
-import com.gautam.healthcare.data.source.MedicineDataSource;
-import com.gautam.healthcare.data.source.MedicineRepository;
+import com.example.healthcare.source.History;
+import com.example.healthcare.source.MedicineAlarm;
+import com.example.healthcare.source.MedicineDataSource;
+import com.example.healthcare.source.MedicineRepository;
 
 /**
  * Created by gautam on 13/07/17.

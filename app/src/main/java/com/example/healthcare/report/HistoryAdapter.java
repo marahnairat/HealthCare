@@ -7,10 +7,10 @@ import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gautam.healthcare.R;
-import com.gautam.healthcare.data.source.History;
-import com.gautam.healthcare.views.RobotoBoldTextView;
-import com.gautam.healthcare.views.RobotoRegularTextView;
+import com.example.healthcare.R;
+import com.example.healthcare.source.History;
+import com.example.healthcare.views.RobotoBoldTextView;
+import com.example.healthcare.views.RobotoRegularTextView;
 
 import java.util.List;
 

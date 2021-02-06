@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.gautam.healthcare.utils.FontUtil;
+import com.example.healthcare.utils.FontUtil;
 
 
 public class RobotoBoldTextView extends AppCompatTextView {

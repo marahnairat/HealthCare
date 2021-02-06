@@ -2,9 +2,9 @@ package com.example.healthcare.report;
 
 import androidx.annotation.NonNull;
 
-import com.gautam.healthcare.data.source.History;
-import com.gautam.healthcare.data.source.MedicineDataSource;
-import com.gautam.healthcare.data.source.MedicineRepository;
+import com.example.healthcare.source.History;
+import com.example.healthcare.source.MedicineDataSource;
+import com.example.healthcare.source.MedicineRepository;
 
 import java.util.ArrayList;
 import java.util.List;

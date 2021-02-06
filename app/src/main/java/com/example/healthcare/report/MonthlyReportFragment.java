@@ -18,9 +18,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gautam.healthcare.R;
-import com.gautam.healthcare.data.source.History;
-import com.gautam.healthcare.views.RobotoLightTextView;
+import com.example.healthcare.R;
+import com.example.healthcare.source.History;
+import com.example.healthcare.views.RobotoLightTextView;
 
 import java.util.ArrayList;
 import java.util.List;

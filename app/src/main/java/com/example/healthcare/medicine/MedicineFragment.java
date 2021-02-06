@@ -15,10 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gautam.healthcare.R;
-import com.gautam.healthcare.addmedicine.AddMedicineActivity;
-import com.gautam.healthcare.data.source.MedicineAlarm;
-import com.gautam.healthcare.views.RobotoLightTextView;
+import com.example.healthcare.R;
+import com.example.healthcare.addmedicine.AddMedicineActivity;
+import com.example.healthcare.source.MedicineAlarm;
+import com.example.healthcare.views.RobotoLightTextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 

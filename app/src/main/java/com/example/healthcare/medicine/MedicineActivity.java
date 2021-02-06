@@ -14,10 +14,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 
-import com.gautam.healthcare.Injection;
-import com.gautam.healthcare.R;
-import com.gautam.healthcare.report.MonthlyReportActivity;
-import com.gautam.healthcare.utils.ActivityUtils;
+import com.example.healthcare.Injection;
+import com.example.healthcare.R;
+import com.example.healthcare.report.MonthlyReportActivity;
+import com.example.healthcare.utils.ActivityUtils;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;

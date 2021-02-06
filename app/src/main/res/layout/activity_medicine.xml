@@ -13,7 +13,7 @@
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:expanded="false"
-        app:layout_behavior="com.gautam.healthcare.utils.ScrollingCalendarBehavior">
+        app:layout_behavior="com.example.healthcare.utils.ScrollingCalendarBehavior">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbarLayout"
@@ -32,8 +32,8 @@
                 android:layout_height="250dp"
                 android:paddingTop="?attr/actionBarSize"
                 app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="1.0">
-
+                app:layout_collapseParallaxMultiplier="1.0"
+                >
                 <com.github.sundeepk.compactcalendarview.CompactCalendarView
                     android:id="@+id/compactcalendar_view"
                     android:layout_width="match_parent"

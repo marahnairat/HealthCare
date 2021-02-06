@@ -7,9 +7,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.gautam.healthcare.Injection;
-import com.gautam.healthcare.R;
-import com.gautam.healthcare.utils.ActivityUtils;
+import com.example.healthcare.Injection;
+import com.example.healthcare.R;
+import com.example.healthcare.utils.ActivityUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

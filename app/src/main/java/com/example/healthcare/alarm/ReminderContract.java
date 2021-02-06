@@ -1,9 +1,9 @@
 package com.example.healthcare.alarm;
 
-import com.gautam.healthcare.BasePresenter;
-import com.gautam.healthcare.BaseView;
-import com.gautam.healthcare.data.source.History;
-import com.gautam.healthcare.data.source.MedicineAlarm;
+import com.example.healthcare.BasePresenter;
+import com.example.healthcare.BaseView;
+import com.example.healthcare.source.History;
+import com.example.healthcare.source.MedicineAlarm;
 
 /**
  * Created by gautam on 13/07/17.
