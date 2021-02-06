@@ -14,4 +14,12 @@
     <dimen name="small_textsize">12sp</dimen>
     <dimen name="large_textsize">14sp</dimen>
 
+        <dimen name="two_dp">2dp</dimen>
+        <dimen name="four_dp">4dp</dimen>
+        <dimen name="eight_dp">8dp</dimen>
+        <dimen name="sixteen_dp">16dp</dimen>
+        <dimen name="text_medium">14sp</dimen>
+        <dimen name="text_large">17sp</dimen>
+
+
 </resources>

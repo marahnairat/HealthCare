@@ -28,6 +28,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".the_final_register"></activity>
         <activity android:name=".the_final_login" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,6 +43,10 @@
         <activity android:name=".Dr_profile_dr_side" />
         <activity android:name=".ReminderActivity" />
         <activity android:name=".AppointmentsListViews" />
+        <activity android:name=".medicine.MedicineActivity" />
+        <activity android:name=".addmedicine.AddMedicineActivity" />
+        <activity android:name=".alarm.ReminderActivity" />
+        <activity android:name=".report.MonthlyReportActivity"/>
 
         <receiver android:name=".AlarmReceiver" />
         <receiver android:name="MyBroadcastReceiver" >

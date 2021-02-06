@@ -29,6 +29,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.healthcare.medicine.MedicineActivity;
+
 import java.nio.BufferUnderflowException;
 
 import butterknife.BindView;
@@ -76,7 +78,7 @@ public class StratActivity extends Fragment {
             public void onClick(View v) {
 
 
-                Intent i = new Intent(getActivity(),ReminderActivity.class);
+                Intent i = new Intent(getActivity(), MedicineActivity.class);
                 startActivity(i);
 
             }
