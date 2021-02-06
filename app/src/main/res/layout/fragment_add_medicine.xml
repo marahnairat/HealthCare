@@ -190,7 +190,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/drawable_underline"
+                        android:background="@drawable/text_style"
                         android:gravity="center"
                         android:padding="@dimen/four_dp"
                         android:textSize="@dimen/text_large"

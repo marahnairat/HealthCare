@@ -7,11 +7,12 @@
     android:background="@drawable/background_day_view"
     android:orientation="vertical">
 
-    <com.gautam.healthcare.views.RobotoBoldTextView
+    <com.example.healthcare.views.RobotoBoldTextView
         android:id="@+id/weekDayTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="@dimen/text_large"
         />
+
 </FrameLayout>
