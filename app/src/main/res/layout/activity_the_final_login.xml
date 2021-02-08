@@ -43,7 +43,7 @@
                 android:id="@+id/loginEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="50dp"
                 android:ems="10"
                 android:hint="Email Address"
                 android:inputType="textEmailAddress"
@@ -52,7 +52,7 @@
 
             <EditText
                 android:id="@+id/loginPassword"
-                android:layout_width="match_parent"
+                android:layout_width="315dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ems="10"
@@ -66,32 +66,11 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/blue"
                 android:text="Login"
                 android:textColor="@color/colorText" />
-
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/RelativeLayout01"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
-
-                <TextView
-                    android:id="@+id/forgotButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="5dp"
-                    android:background="@null"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/login_button_forgot"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/colorText"
-                    android:textSize="12sp" />
-
-
-            </RelativeLayout>
 
 
             <FrameLayout
@@ -117,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="50dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:background="@drawable/text_border">
