@@ -115,6 +115,8 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
         int data[] = new int[valuesselected.size()];
         for (int m=0;m<valuesselected.size();m++) {
             data[m]= (int) (Double.parseDouble(valuesselected.get(m))*10);
+            Log.d("valuesselected is ", valuesselected.get(m) );
+
         }
 //        int data[]={13,15,33,41,14,19,75,16};
         int noofclusters=3;
@@ -122,6 +124,7 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
                 {0,0,0},
                 {getMinValue(data),(getMinValue(data)+getMaxValue(data))/2,getMaxValue(data)}
         };
+
         Pair c=getCentroid(data,noofclusters,centroid);
 
         for (int i=0;i<=c.getArray1().length;i++) {
@@ -219,6 +222,7 @@ cb.setOnClickListener(new View.OnClickListener() {
 
                                  // Log.i("Test", "log infos");
                               } else {
+                                  valuesselected.remove(map.get(cb.getText()));
                                   Toast.makeText(TwoFragmentsActivity.this, cb.getText()+"Not selected", Toast.LENGTH_SHORT).show();
                               }
                           }
@@ -386,12 +390,12 @@ cb.setOnClickListener(new View.OnClickListener() {
 
                             for (QueryDocumentSnapshot document : task.getResult
                                     ()) {
-                                        doctors.add(new DataObject((int) document.getGeoPoint("location").getLatitude(),
-                                                (int) document.getGeoPoint("location").getLongitude(),document.get("name").toString(),
+                                        doctors.add(new DataObject( document.getGeoPoint("location").getLatitude(),
+                                                 document.getGeoPoint("location").getLongitude(),document.get("name").toString(),
                                                 document.get("city").toString(),
                                                 document.get("phone").toString()
                                                 ,document.get("image").toString(),
-                                                document.get("uid").toString()));
+                                                document.get("uid").toString(),specialize));
 
 
 
@@ -428,7 +432,7 @@ cb.setOnClickListener(new View.OnClickListener() {
         DataObject ref ;
         for (int i = 0; i < objs.size(); i++) {
             ref = objs.get(i);
-            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.name,ref.city,ref.phone,ref.image,ref.dr_id));
+            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.name,ref.city,ref.phone,ref.image,ref.dr_id,ref.spec));
         }
 
 //sorting distance.
@@ -491,8 +495,8 @@ class Pair
 }
 
 class DataObject implements Parcelable {
-    int x;
-    int y;
+    double x;
+    double y;
     double distance;
     String name;
     String city;
@@ -502,12 +506,13 @@ class DataObject implements Parcelable {
     String day;
     String hour;
     String app_id;
+    String spec;
 
-    public DataObject(int x, int y)
+    public DataObject(double x, double y)
     { this.x = x;
         this.y = y; }
 
-    public DataObject(int x, int y, String name, String  city,String phone ,String image,String dr_id)
+    public DataObject(double x, double y, String name, String  city,String phone ,String image,String dr_id,String spec)
     {
         this.x = x;
         this.y = y;
@@ -516,9 +521,10 @@ class DataObject implements Parcelable {
         this.phone = phone;
         this.dr_id = dr_id;
         this.image = image;
+        this.spec = spec;
 
     }
-    public DataObject(double distance, String name, String  city,String phone,String image, String dr_id)
+    public DataObject(double distance, String name, String  city,String phone,String image, String dr_id,String spec)
     {
         this.distance = distance;
         this.name = name;
@@ -526,6 +532,7 @@ class DataObject implements Parcelable {
         this.phone = phone;
         this.dr_id = dr_id;
         this.image = image;
+        this.spec = spec;
     }
     public DataObject( String name, String  day,String hour,String app_id)
     {
@@ -537,8 +544,8 @@ class DataObject implements Parcelable {
     }
 
     protected DataObject(Parcel in) {
-        x = in.readInt();
-        y = in.readInt();
+        x = in.readDouble();
+        y = in.readDouble();
         distance = in.readDouble();
         name = in.readString();
         city = in.readString();
@@ -548,12 +555,13 @@ class DataObject implements Parcelable {
         day = in.readString();
         hour = in.readString();
         app_id = in.readString();
+        spec = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(x);
-        dest.writeInt(y);
+        dest.writeDouble(x);
+        dest.writeDouble(y);
         dest.writeDouble(distance);
         dest.writeString(name);
         dest.writeString(city);
@@ -563,6 +571,7 @@ class DataObject implements Parcelable {
         dest.writeString(day);
         dest.writeString(hour);
         dest.writeString(app_id);
+        dest.writeString(spec);
     }
 
     @Override
@@ -602,6 +611,9 @@ class DataObject implements Parcelable {
     }
     public String getApp_id() {
         return app_id;
+    }
+    public String getSpec() {
+        return spec;
     }
 
     public String toString(){
