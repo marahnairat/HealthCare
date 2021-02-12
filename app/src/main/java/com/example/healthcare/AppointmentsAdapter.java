@@ -1,7 +1,6 @@
 package com.example.healthcare;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +16,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Objects;
 
 public class AppointmentsAdapter  extends ArrayAdapter<Appointment> {
@@ -50,7 +46,7 @@ public class AppointmentsAdapter  extends ArrayAdapter<Appointment> {
                     DocumentSnapshot doc =task.getResult();
                     if (doc.exists())
                     {
-                        if(Boolean.parseBoolean(Objects.requireNonNull(doc.get("isUser")).toString())) {
+                        if(Boolean.parseBoolean(Objects.requireNonNull(doc.get("isDoctor")).toString())) {
                             isuser[0] = true;
                             Log.d("Document", "uuuuuuuuuusssssssssseeeeeeeeeerrrrrrrrr");
                         }
