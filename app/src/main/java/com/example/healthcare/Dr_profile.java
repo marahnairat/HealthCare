@@ -58,6 +58,7 @@ public class Dr_profile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(),ReservationActivity.class);
                 i.putExtra("dr_id",dr_id);
+                i.putExtra("dr_name",namedr);
                 startActivity(i);
 
             }

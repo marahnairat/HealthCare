@@ -62,7 +62,8 @@ public class Dr_profile_dr_side extends AppCompatActivity {
 
                                     for (QueryDocumentSnapshot document : task.getResult
                                             ()) {
-                                        appointments.add(new DataObject(Objects.requireNonNull(document.get("name")).toString(),
+                                        appointments.add(new DataObject(Objects.requireNonNull(document.get("dr_name")).toString(),
+                                                Objects.requireNonNull(document.get("p_name")).toString(),
                                                 Objects.requireNonNull(document.get("date")).toString(),
                                                 Objects.requireNonNull(document.get("time")).toString(),
                                                 document.getId()));

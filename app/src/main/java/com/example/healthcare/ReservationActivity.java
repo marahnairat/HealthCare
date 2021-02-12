@@ -28,13 +28,16 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ReservationActivity extends AppCompatActivity implements singlechoice.SingleChoiceListener {
-    Button selectDate, button_time;
+    Button selectDate, button_time, show_appo;
     TextView date;
     DatePickerDialog datePickerDialog;
     int year;
@@ -54,7 +57,6 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
         date = findViewById(R.id.tvSelectedDate);
         FirebaseAuth fauth=FirebaseAuth.getInstance();
         String user_id=fauth.getCurrentUser().getUid();
-
         String dr_id=getIntent().getStringExtra("dr_id");
         DocumentReference data = FirebaseFirestore.getInstance().collection("Users")
                 .document(user_id);
@@ -103,15 +105,17 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
 
 //                confirmAppointment(dr_id,user_name,user_id,date_selected,time_selected);
                 Map<String, Object> appointment = new HashMap<>();
-                appointment.put("name",user_name);
+                String dr_name=getIntent().getStringExtra("dr_name");
+                appointment.put("p_name",user_name);
                 appointment.put("date",date_selected);
                 appointment.put("time",time_selected);
+                appointment.put("dr_name",dr_name);
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 db.collection("Users").document(dr_id).collection("appointments")
                         .add(appointment);
+                db.collection("Users").document(user_id).collection("appointments")
+                        .add(appointment);
 
-                Intent i = new Intent(getBaseContext(),MainActivity.class);
-                startActivity(i);
 
             }
         });
@@ -126,6 +130,53 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
 
 
             }
+        });
+
+        show_appo = (Button) findViewById(R.id.show_appo);
+        show_appo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                        ArrayList<DataObject> appointments=new ArrayList<DataObject>();
+                        FirebaseAuth fauth=FirebaseAuth.getInstance();
+                        String user_id=fauth.getCurrentUser().getUid();
+                        FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+                        db1.collection("Users").document(user_id).collection("appointments")
+                                .get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if (task.isSuccessful()) {
+
+                                            for (QueryDocumentSnapshot document : task.getResult
+                                                    ()) {
+                                                appointments.add(new DataObject(Objects.requireNonNull(document.get("dr_name")).toString(),
+                                                        Objects.requireNonNull(document.get("p_name")).toString(),
+                                                        Objects.requireNonNull(document.get("date")).toString(),
+                                                        Objects.requireNonNull(document.get("time")).toString(),
+                                                        document.getId()));
+
+
+
+                                            }
+                                        } else {
+                                            Log.w("all documents", "Error getting documents.", task.getException());
+                                        }
+
+                                        Intent i = new Intent(getBaseContext(),AppointmentsListViews.class);
+                                        i.putExtra("appointments",appointments);
+                                        startActivity(i);
+
+
+                                    }
+                                });
+
+
+                    }
+
+
+
         });
 
     }

@@ -39,7 +39,7 @@ public class Doctor {
     public static ArrayList<Doctor> getDoctors(ArrayList<DataObject> docs) {
         ArrayList<Doctor> users = new ArrayList<Doctor>();
         for (int d=0;d<5;d++)
-            users.add(new Doctor(docs.get(d).name, docs.get(d).city,docs.get(d).phone,docs.get(d).dr_id,docs.get(d).spec));
+            users.add(new Doctor(docs.get(d).dr_name, docs.get(d).city,docs.get(d).phone,docs.get(d).dr_id,docs.get(d).spec));
         return users;
     }
 }

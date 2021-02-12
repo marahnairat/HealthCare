@@ -432,7 +432,7 @@ cb.setOnClickListener(new View.OnClickListener() {
         DataObject ref ;
         for (int i = 0; i < objs.size(); i++) {
             ref = objs.get(i);
-            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.name,ref.city,ref.phone,ref.image,ref.dr_id,ref.spec));
+            record.add(new DataObject(Math.sqrt((o.x - ref.x) * (o.x - ref.x) + (o.y - ref.y) * (o.y - ref.y)),ref.dr_name,ref.city,ref.phone,ref.image,ref.dr_id,ref.spec));
         }
 
 //sorting distance.
@@ -498,7 +498,8 @@ class DataObject implements Parcelable {
     double x;
     double y;
     double distance;
-    String name;
+    String dr_name;
+    String p_name;
     String city;
     String phone;
     String dr_id;
@@ -512,11 +513,11 @@ class DataObject implements Parcelable {
     { this.x = x;
         this.y = y; }
 
-    public DataObject(double x, double y, String name, String  city,String phone ,String image,String dr_id,String spec)
+    public DataObject(double x, double y, String dr_name, String  city,String phone ,String image,String dr_id,String spec)
     {
         this.x = x;
         this.y = y;
-        this.name = name;
+        this.dr_name = dr_name;
         this.city = city;
         this.phone = phone;
         this.dr_id = dr_id;
@@ -524,19 +525,20 @@ class DataObject implements Parcelable {
         this.spec = spec;
 
     }
-    public DataObject(double distance, String name, String  city,String phone,String image, String dr_id,String spec)
+    public DataObject(double distance, String dr_name, String  city,String phone,String image, String dr_id,String spec)
     {
         this.distance = distance;
-        this.name = name;
+        this.dr_name = dr_name;
         this.city = city;
         this.phone = phone;
         this.dr_id = dr_id;
         this.image = image;
         this.spec = spec;
     }
-    public DataObject( String name, String  day,String hour,String app_id)
+    public DataObject( String dr_name,String p_name, String  day,String hour,String app_id)
     {
-        this.name = name;
+        this.dr_name = dr_name;
+        this.p_name = p_name;
         this.day = day;
         this.hour = hour;
         this.app_id = app_id;
@@ -547,7 +549,8 @@ class DataObject implements Parcelable {
         x = in.readDouble();
         y = in.readDouble();
         distance = in.readDouble();
-        name = in.readString();
+        dr_name = in.readString();
+        p_name = in.readString();
         city = in.readString();
         phone = in.readString();
         dr_id = in.readString();
@@ -563,7 +566,8 @@ class DataObject implements Parcelable {
         dest.writeDouble(x);
         dest.writeDouble(y);
         dest.writeDouble(distance);
-        dest.writeString(name);
+        dest.writeString(dr_name);
+        dest.writeString(p_name);
         dest.writeString(city);
         dest.writeString(phone);
         dest.writeString(dr_id);
@@ -591,8 +595,11 @@ class DataObject implements Parcelable {
         }
     };
 
-    public String getName() {
-        return name;
+    public String getdrName() {
+        return dr_name;
+    }
+    public String getpName() {
+        return p_name;
     }
     public String getCity() {
         return city;
@@ -617,6 +624,6 @@ class DataObject implements Parcelable {
     }
 
     public String toString(){
-        return "[" + getDistance() + "," + getName() + "," + getCity() +"," + getPhone() + "]";
+        return "[" + getDistance() + "," + getdrName() + "," + getCity() +"," + getPhone() + "]";
     }
 }

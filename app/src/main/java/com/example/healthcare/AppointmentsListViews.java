@@ -47,14 +47,14 @@ public class AppointmentsListViews extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 FirebaseAuth fauth=FirebaseAuth.getInstance();
-                String doctor_id=fauth.getCurrentUser().getUid();
+                String user_id=fauth.getCurrentUser().getUid();
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE: {
                                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                                db.collection("Users").document(doctor_id).collection("appointments").document(arrayOfAppointments.get(position).app_id)
+                                db.collection("Users").document(user_id).collection("appointments").document(arrayOfAppointments.get(position).app_id)
                                         .delete()
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
