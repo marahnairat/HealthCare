@@ -56,7 +56,7 @@ import java.util.Map;
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 FirebaseUser user =fauth.getCurrentUser();
-                                Toast.makeText(the_final_register.this,"Avvount created ",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(the_final_register.this,"Account created ",Toast.LENGTH_SHORT).show();
                                 DocumentReference df =fstore.collection("Users").document(user.getUid());
                                 Map<String,Object> userinfo =new HashMap<>();
                                 userinfo.put("FullName",fullName.getText().toString());

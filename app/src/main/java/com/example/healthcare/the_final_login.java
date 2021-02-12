@@ -59,6 +59,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
                             @Override
                             public void onFailure(@NonNull Exception e) {
 
+                                Toast.makeText(the_final_login.this,"Incorrect Email or password",Toast.LENGTH_SHORT).show();
+
                             }
                         });
 
@@ -84,7 +86,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     Log.d("TAG", "onSuccess:" + documentSnapshot.getData());
-                    if(documentSnapshot.getLong("isDoctor")!=null){
+                    if(documentSnapshot.getBoolean("isDoctor")==true){
                         String doctor_name= documentSnapshot.getString("FullName");
                         String doctor_phone= documentSnapshot.getString("PhoneNumber");
                         Intent intent = new Intent(the_final_login.this, Dr_profile_dr_side.class);
@@ -94,7 +96,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 //                    startActivity(new Intent(getApplicationContext(),Dr_profile_dr_side.class));
                         finish();
                     }
-                    if(documentSnapshot.getString("isUser")!=null){
+                    if(documentSnapshot.getBoolean("isDoctor")==false){
                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         finish();
 

@@ -34,16 +34,16 @@
                 android:layout_marginBottom="20dp"
                 android:fontFamily="sans-serif"
                 android:gravity="center_horizontal"
-                android:text="@string/registration_title"
+                android:text="Care Clinic"
                 android:textColor="@color/colorText"
-                android:textSize="24sp" />
+                android:textSize="30sp" />
 
 
             <EditText
                 android:id="@+id/loginEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:hint="Email Address"
                 android:inputType="textEmailAddress"
