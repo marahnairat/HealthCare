@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -112,13 +113,51 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
                 appointment.put("dr_name",dr_name);
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 db.collection("Users").document(dr_id).collection("appointments")
-                        .add(appointment);
-                db.collection("Users").document(user_id).collection("appointments")
-                        .add(appointment);
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    boolean ifexist=false;
+                                    for (QueryDocumentSnapshot document : task.getResult
+                                            ()) {
+                                     if((document.get("date").toString().equals(date_selected))&&  document.get("time").toString().equals(time_selected))
+                                     {
+                                         Toast.makeText(getApplicationContext(), "This time is already reserved ! ", Toast.LENGTH_LONG).show();
+                                         ifexist=true;
+                                          break;
+                                     }
+
+
+                                    }
+                                    if(!ifexist)
+                                    {
+                                        addAppointment(appointment);
+                                    }
+                                } else {
+                                    Log.w("all documents", "Error getting documents.", task.getException());
+                                }
+
+
+
+                            }
+                        });
+
+
+
 
 
             }
-        });
+
+          private void addAppointment(Map<String, Object> appointment) {
+              FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+              db1.collection("Users").document(dr_id).collection("appointments")
+                      .add(appointment);
+              db1.collection("Users").document(user_id).collection("appointments")
+                      .add(appointment);
+          }
+      });
 
         button_time = (Button) findViewById(R.id.button_time);
         button_time.setOnClickListener(new View.OnClickListener() {

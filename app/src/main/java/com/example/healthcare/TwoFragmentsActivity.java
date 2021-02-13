@@ -70,15 +70,6 @@ public class TwoFragmentsActivity extends FragmentActivity implements LocationLi
         }
         getLocation();
 
-
-//        final Button button = (Button) findViewById(R.id.buttonchange);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//
-//                onButtonClick();
-//            }
-//        });
-
         final Button but1 = (Button) findViewById(R.id.continueButton);
         but1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
