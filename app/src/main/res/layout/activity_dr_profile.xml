@@ -9,10 +9,34 @@
     android:textAlignment="center"
     >
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/blue">
+
+        <Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/blue"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:title="@string/app_name"
+            android:titleMarginStart="40dp"
+            android:logo="@drawable/ic_menu">
+
+
+
+
+        </Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <RelativeLayout
         android:id="@+id/rellay1"
         android:layout_width="match_parent"
+        android:layout_marginTop="100dp"
         android:layout_height="wrap_content"
+
         >
 
         <RelativeLayout
@@ -45,7 +69,7 @@
             android:fontFamily="sans-serif-light"
             android:text="Ahmed Ali "
             android:textColor="@color/black"
-            android:textSize="32sp"/>
+            android:textSize="32sp" />
 
 
         <TextView
@@ -60,15 +84,7 @@
             android:textColor="@color/blue"
             android:textSize="14sp" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_settings" />
+
 
     </RelativeLayout>
 
@@ -77,13 +93,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rellay1"
-        android:orientation="horizontal"/>
-
+        android:layout_marginTop="141dp"
+        android:orientation="horizontal" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="221dp"
-        android:layout_below="@+id/linlay1">
+        android:layout_below="@+id/rellay1"
+        android:layout_marginTop="-14dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,10 +113,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:textAlignment="center"
                 android:background="#113F51B5"
-                >
+                android:orientation="vertical"
+                android:textAlignment="center">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -150,30 +166,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:background="#113F51B5"
                 android:orientation="vertical"
-                android:textAlignment="center"
-                android:background="#113F51B5">
+                android:textAlignment="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Phone"
-                    android:textColor="@color/blue"
-                    android:textSize="13sp"
-                    android:textAlignment="center"
                     android:layout_marginStart="155dp"
-                    />
+                    android:text="Phone"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/phone_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:text="0599123456"
                     android:layout_marginStart="130dp"
-                    />
+                    android:fontFamily="sans-serif-light"
+                    android:text="0599123456"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -195,14 +209,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="52dp"
-        android:layout_marginEnd="230dp"
-        android:layout_marginBottom="200dp"
-        android:text="Clinical"
-android:textSize="17dp"
-        android:textStyle="bold"
+        android:layout_marginEnd="228dp"
+        android:layout_marginBottom="84dp"
         android:background="@color/blue"
+        android:text="Clinical"
         android:textColor="@color/white"
-        />
+        android:textSize="17dp"
+        android:textStyle="bold" />
 
     <Button
         android:id='@+id/delivery_bn'
@@ -212,14 +225,13 @@ android:textSize="17dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="190dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="65dp"
-        android:layout_marginBottom="200dp"
-        android:text="Delivery "
-        android:textSize="17dp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginBottom="85dp"
         android:background="@color/blue"
-        />
+        android:text="Delivery "
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

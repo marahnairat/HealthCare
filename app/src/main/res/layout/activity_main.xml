@@ -20,8 +20,8 @@
             android:background="@color/blue"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:title="@string/app_name"
-            android:titleMarginStart="40dp" >
-<!--            android:logo="@drawable/ic_menu"-->
+            android:titleMarginStart="40dp"
+            android:logo="@drawable/ic_menu">
 
 
 
