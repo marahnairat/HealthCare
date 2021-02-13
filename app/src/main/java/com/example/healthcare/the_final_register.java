@@ -62,7 +62,7 @@ import java.util.Map;
                                 userinfo.put("FullName",fullName.getText().toString());
                                 userinfo.put("UserEmail",email.getText().toString());
                                 userinfo.put("PhoneNumber",phone.getText().toString());
-                                userinfo.put("isUser","1");
+                                userinfo.put("isDoctor",(boolean)false);
                                 df.set(userinfo);
                                 startActivity(new Intent(getApplicationContext(),the_final_login.class));
                             }
