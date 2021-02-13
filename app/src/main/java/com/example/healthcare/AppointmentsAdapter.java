@@ -35,7 +35,7 @@ public class AppointmentsAdapter  extends ArrayAdapter<Appointment> {
     public View getView(int position, View convertView, ViewGroup parent) {
         FirebaseAuth fauth=FirebaseAuth.getInstance();
         String user_id=fauth.getCurrentUser().getUid();
-        final boolean[] isuser = new boolean[1];
+         boolean[] isdoctor = new boolean[1];
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_appointment, parent, false);
@@ -49,14 +49,10 @@ public class AppointmentsAdapter  extends ArrayAdapter<Appointment> {
                 {
                     DocumentSnapshot doc =task.getResult();
                     if (doc.exists())
-                    {
-                        if(Boolean.parseBoolean(Objects.requireNonNull(doc.get("isUser")).toString())) {
-                            isuser[0] = true;
-                            Log.d("Document", "uuuuuuuuuusssssssssseeeeeeeeeerrrrrrrrr");
-                        }
-                        else {
-                            isuser[0] = false;
-                            Log.d("Document", "doooooooooooocccccccctttor");
+                    {  Log.d("Document",(String) doc.get("isDoctor").toString() );
+
+                        isdoctor[0]=Boolean.parseBoolean((String) doc.get("isDoctor").toString());
+
                         }
 
                     }
@@ -66,12 +62,12 @@ public class AppointmentsAdapter  extends ArrayAdapter<Appointment> {
                     }
 
                 }
-            }
+
         });
 
 
         Appointment appointment= (Appointment) getItem(position);
-if(isuser[0]) {
+if(!isdoctor[0]) {
     Log.d("Document","uuuuuussssssseeeeeeeerrrrrrr");
     TextView docName = (TextView) convertView.findViewById(R.id.name_text);
     TextView docDay = (TextView) convertView.findViewById(R.id.day_text);
@@ -80,7 +76,7 @@ if(isuser[0]) {
     docDay.setText(appointment.day);
     docHour.setText(appointment.hour);
 }
-else if(!isuser[0])
+else if(isdoctor[0])
 {
  Log.d("Document","dooooooocccdoc");
     TextView docName = (TextView) convertView.findViewById(R.id.name_text);
