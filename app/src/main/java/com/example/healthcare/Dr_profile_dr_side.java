@@ -62,7 +62,9 @@ public class Dr_profile_dr_side extends AppCompatActivity {
 
                                     for (QueryDocumentSnapshot document : task.getResult
                                             ()) {
-                                        appointments.add(new DataObject(Objects.requireNonNull(document.get("dr_name")).toString(),
+                                        appointments.add(
+                                                new DataObject(Objects.requireNonNull(
+                                                        document.get("dr_name").toString()),
                                                 Objects.requireNonNull(document.get("p_name")).toString(),
                                                 Objects.requireNonNull(document.get("date")).toString(),
                                                 Objects.requireNonNull(document.get("time")).toString(),
@@ -77,6 +79,7 @@ public class Dr_profile_dr_side extends AppCompatActivity {
 
                                 Intent i = new Intent(getBaseContext(),AppointmentsListViews.class);
                                 i.putExtra("appointments",appointments);
+                                i.putExtra("isdoctor","true");
                                 startActivity(i);
 
 

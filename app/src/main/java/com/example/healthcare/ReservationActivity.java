@@ -55,6 +55,7 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
         FirebaseAuth fauth=FirebaseAuth.getInstance();
         String user_id=fauth.getCurrentUser().getUid();
         String dr_id=getIntent().getStringExtra("dr_id");
+
         DocumentReference data = FirebaseFirestore.getInstance().collection("Users")
                 .document(user_id);
                 data.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -203,6 +204,7 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
 
                                         Intent i = new Intent(getBaseContext(),AppointmentsListViews.class);
                                         i.putExtra("appointments",appointments);
+                                        i.putExtra("isdoctor","true");
                                         startActivity(i);
 
 
