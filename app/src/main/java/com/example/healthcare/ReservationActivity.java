@@ -119,7 +119,7 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
                                     boolean ifexist=false;
                                     for (QueryDocumentSnapshot document : task.getResult
                                             ()) {
-                                     if((document.get("date").toString().equals(date_selected))&&  document.get("time").toString().equals(time_selected))
+                                     if((document.get("date").equals(date_selected))&&  document.get("time").equals(time_selected))
                                      {
                                          Toast.makeText(getApplicationContext(), "This time is already reserved ! ", Toast.LENGTH_LONG).show();
                                          ifexist=true;
@@ -204,7 +204,7 @@ public class ReservationActivity extends AppCompatActivity implements singlechoi
 
                                         Intent i = new Intent(getBaseContext(),AppointmentsListViews.class);
                                         i.putExtra("appointments",appointments);
-                                        i.putExtra("isdoctor","true");
+                                        i.putExtra("isdoctor","false");
                                         startActivity(i);
 
 
