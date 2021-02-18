@@ -397,7 +397,8 @@ cb.setOnClickListener(new View.OnClickListener() {
 
                         ArrayList<DataObject> resultKNN = new ArrayList<DataObject>();//doctors
 
-                        DataObject patient = new DataObject(lat, lon);// patient
+                       // DataObject patient = new DataObject(lat, lon);// patient
+                        DataObject patient = new DataObject(lat, lon);
                         resultKNN = kNN(patient, doctors);
 
                         for(int i=0;i<5;i++)
@@ -453,7 +454,7 @@ cb.setOnClickListener(new View.OnClickListener() {
     public void onLocationChanged(Location location) {
         lat=(int)location.getLatitude();
         lon=(int)location.getLongitude();
-        Toast.makeText(this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(this, ""+lat+","+lon, Toast.LENGTH_SHORT).show();
     }
 
     @Override
